@@ -1,0 +1,21 @@
+@use "abstracts/variables";
+
+@use "base/reset";
+@use "base/typography";
+
+@use "layout/navigation";
+@use "layout/header";
+@use "layout/footer";
+
+@use "components/button";
+@use "components/notification";
+
+@use "pages/home";
+@use "pages/about";
+@use "pages/service";
+@use "pages/faq";
+@use "pages/contact";
+
+* {
+    color: blue;
+}
