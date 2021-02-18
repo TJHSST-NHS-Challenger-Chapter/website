@@ -1,7 +1,7 @@
 .vscode
 
 frontend/node_modules
-frontend/package-lock.json
+frontend/build
 
 venv
 __pycache__

@@ -22,3 +22,7 @@ The FAQ page contains answers to common questions from applicants and others.
 
 ## Contact Us
 The Contact Us page has a form that allows anyone to send us a question or feedback.
+
+# Development
+
+The website uses flask as a backend and requires webpack for frontend development.  After cloning the repository, run `npm install` from the `frontend/` directory.  Run `npm run watch` to rebuild the css and js on changes.  In the root directory of the repository, run `python app.py` to start the backend in debug mode.  The page will need to be refreshed after changes.
