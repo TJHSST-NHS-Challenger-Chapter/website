@@ -26,3 +26,66 @@ The Contact Us page has a form that allows anyone to send us a question or feedb
 # Development
 
 The website uses flask as a backend and requires webpack for frontend development.  After cloning the repository, run `npm install` from the `frontend/` directory.  Run `npm run watch` to rebuild the css and js on changes.  In the root directory of the repository, run `python app.py` to start the backend in debug mode.  The page will need to be refreshed after changes.
+
+## Outline
+Below is an outline of the directory structure of the project.
+
+The `scss/` folder is organized following [The 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern), and all of the styles are bundled together into `styles.css` every build.  Webpack is used to compile the scss so that the site can extend [Material Components Web](https://github.com/material-components/material-components-web).
+
+The `templates/` folder holds templates for the flask app.  Note: referencing static files needs to be done specially; see `home.html` for an example.
+
+```
+├── LICENSE
+├── README.md
+├── __pycache__ [...]
+├── app.py
+├── frontend
+│   ├── node_modules [...]
+│   ├── build
+│   │   ├── about.js
+│   │   ├── contact.js
+│   │   ├── faq.js
+│   │   ├── home.js
+│   │   ├── service.js
+│   │   └── styles.css
+│   ├── src
+│   │   ├── js
+│   │   │   ├── button.js
+│   │   │   └── pages
+│   │   │       ├── about.js
+│   │   │       ├── contact.js
+│   │   │       ├── faq.js
+│   │   │       ├── home.js
+│   │   │       └── service.js
+│   │   ├── scss
+│   │   │   ├── abstracts
+│   │   │   │   └── _variables.scss
+│   │   │   ├── base
+│   │   │   │   ├── _reset.scss
+│   │   │   │   └── _typography.scss
+│   │   │   ├── components
+│   │   │   │   ├── _button.scss
+│   │   │   │   └── _notification.scss
+│   │   │   ├── layout
+│   │   │   │   ├── _footer.scss
+│   │   │   │   ├── _header.scss
+│   │   │   │   └── _navigation.scss
+│   │   │   ├── main.scss
+│   │   │   └── pages
+│   │   │       ├── _about.scss
+│   │   │       ├── _contact.scss
+│   │   │       ├── _faq.scss
+│   │   │       ├── _home.scss
+│   │   │       └── _service.scss
+│   │   └── templates
+│   │       ├── about.html
+│   │       ├── contact.html
+│   │       ├── faq.html
+│   │       ├── home.html
+│   │       └── service.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── webpack.config.js
+├── requirements.txt
+└── venv [...]
+```
