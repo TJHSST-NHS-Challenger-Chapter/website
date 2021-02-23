@@ -4,7 +4,9 @@
     "description": "Frontend for the TJHSST NHS Challenger Chapter internal website.",
     "main": "index.js",
     "scripts": {
-        "watch": "export NODE_ENV=development; webpack"
+        "watch": "webpack --env development",
+        "build": "webpack --env production",
+        "format": "prettier --write ./src"
     },
     "repository": {
         "type": "git",
@@ -26,6 +28,7 @@
         "extract-loader": "^5.1.0",
         "file-loader": "^6.2.0",
         "postcss-loader": "^5.0.0",
+        "prettier": "2.2.1",
         "sass": "^1.32.7",
         "sass-loader": "^11.0.1",
         "webpack": "^5.22.0",

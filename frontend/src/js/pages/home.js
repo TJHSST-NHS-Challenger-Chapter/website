@@ -1,2 +1,2 @@
-import { withRipple } from "../button";
+import { withRipple } from "../button"
 withRipple(document.querySelector(".foo-button"))
