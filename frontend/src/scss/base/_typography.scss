@@ -1,0 +1,37 @@
+@use "@material/typography/typography" as *;
+
+@use "../abstracts/variables";
+
+@mixin heading-1 {
+    @include typography(headline1);
+    color: variables.$navy;
+}
+@mixin heading-2 {
+    @include typography(headline2);
+    color: variables.$navy;
+}
+@mixin heading-3 {
+    @include typography(headline3);
+    color: variables.$navy;
+}
+@mixin heading-4 {
+    @include typography(headline4);
+    color: variables.$navy;
+}
+@mixin heading-5 {
+    @include typography(headline5);
+    color: variables.$navy;
+}
+@mixin heading-6 {
+    @include typography(headline6);
+    color: variables.$navy;
+}
+
+@mixin body-1 {
+    @include typography(body1);
+    color: variables.$navy;
+}
+@mixin body-2 {
+    @include typography(body2);
+    color: rgba($color: variables.$navy, $alpha: 0.6);
+}

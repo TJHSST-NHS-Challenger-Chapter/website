@@ -6,16 +6,113 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <script src="{{ url_for('static', filename='home.js') }}" type="module"></script>
     <title>Document</title>
 </head>
 
-<body>
-    Hello there!
-    <button class="foo-button mdc-button">
-        <div class="mdc-button__ripple"></div>
-        <span class="mdc-button__label">Button</span>
-    </button>
+<body class="home root">
+    <!-- #region navigation -->
+    <header class="nav-bar mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <button
+                        class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                        aria-label="Open navigation menu">
+                    menu
+                </button>
+                <span class="nav-bar__title mdc-top-app-bar__title">Home</span>
+            </section>
+        </div>
+    </header>
+
+    <aside class="nav-drawer mdc-drawer mdc-drawer--modal">
+        <div class="mdc-drawer__header">
+            <h3 class="mdc-drawer__title">TJHSST NHS</h3>
+            <h6 class="mdc-drawer__subtitle">Challenger Chapter</h6>
+        </div>
+        <div class="mdc-drawer__content">
+            <nav class="mdc-list">
+                <a class="mdc-list-item mdc-list-item--activated" href="/" aria-current="page">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+                    <span class="mdc-list-item__text">Home</span>
+                </a>
+                <a class="mdc-list-item" href="/about">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
+                    <span class="mdc-list-item__text">About</span>
+                </a>
+                <a class="mdc-list-item" href="/service">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">groups</i>
+                    <span class="mdc-list-item__text">Service</span>
+                </a>
+                <a class="mdc-list-item" href="/faq">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">forum</i>
+                    <span class="mdc-list-item__text">FAQ</span>
+                </a>
+                <a class="mdc-list-item" href="/contact">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">mail_outline</i>
+                    <span class="mdc-list-item__text">Contact Us!</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="mdc-drawer-scrim"></div>
+    <!-- #endregion -->
+
+    <main class="mdc-top-app-bar--fixed-adjust">
+        <section class="deadlines">
+            <h4 class="deadlines__header">Due Dates</h4>
+            <button class="deadlines__button mdc-button mdc-button--outlined">
+                <div class="mdc-button__ripple"></div>
+                <i class="material-icons mdc-button__icon" aria-hidden="true">add</i>
+                <span class="mdc-button__label">Add All to Calendar</span>
+            </button>
+
+            {% for deadline in deadlines %}
+            <div class="deadline mdc-card">
+                <div class="deadline__top">
+                    <h6 class="deadline__header">{{ deadline["title"] }} due {{ deadline["due_date"] }}</h6>
+                    <p class="deadline__body">{{ deadline["description"] }}</p>
+                </div>
+                <div class="deadline__bottom">
+                    <button class="deadline__button mdc-button">
+                        <div class="mdc-button__ripple"></div>
+                        <span class="mdc-button__label">Add to Calendar</span>
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+
+        <section class="announcements">
+            <h4 class="announcements__header">Announcements</h4>
+
+            {% for announcement in announcements %}
+            <div class="announcement mdc-card mdc-card--outlined">
+                <h6 class="announcement__header">{{ announcement["title"] }}</h6>
+                <span class="announcement__date">{{ announcement["date"] }}</span>
+                <p class="announcement__body">{{ announcement["description"] }}</p>
+                {% if announcement.link %}
+                <a
+                   href="{{ announcement.link }}"
+                   class="announcement__button mdc-button mdc-card__action mdc-card__action--button"
+                   rel="noopener noreferrer"
+                   target="_blank">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Open</span>
+                </a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </section>
+    </main>
 </body>
 
 </html>
