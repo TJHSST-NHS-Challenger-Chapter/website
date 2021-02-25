@@ -1,3 +1,3 @@
 import { MDCRipple } from "@material/ripple/index"
 
-export const withRipple = (...buttons) => buttons.map(button => new MDCRipple(button))
+export const add_ripple = button => new MDCRipple(button)
