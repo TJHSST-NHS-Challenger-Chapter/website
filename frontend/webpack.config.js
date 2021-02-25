@@ -20,8 +20,7 @@ module.exports = ({ production, development }) => ({
         // But we never use style-bundle.js
         path: path.join(process.cwd(), "build"),
         // "styles" generates a useless .js file, so we mark it for deletion
-        filename: (data) =>
-            data.chunk.name === "styles" ? "DELETE_ME" : "[name].js",
+        filename: data => (data.chunk.name === "styles" ? "DELETE_ME" : "[name].js"),
         clean: true
     },
     module: {
@@ -33,9 +32,7 @@ module.exports = ({ production, development }) => ({
                     {
                         loader: "babel-loader",
                         options: {
-                            presets: [
-                                ["@babel/preset-env", { targets: "defaults" }]
-                            ]
+                            presets: [["@babel/preset-env", { targets: "defaults" }]]
                         }
                     }
                 ]
@@ -82,8 +79,7 @@ module.exports = ({ production, development }) => ({
         new EventHooksPlugin({
             done: () => {
                 const build = path.join(__dirname, "build")
-                if (fs.readdirSync(build).includes("DELETE_ME"))
-                    fs.unlinkSync(path.join(build, "DELETE_ME"))
+                if (fs.readdirSync(build).includes("DELETE_ME")) fs.unlinkSync(path.join(build, "DELETE_ME"))
             }
         })
     ]
