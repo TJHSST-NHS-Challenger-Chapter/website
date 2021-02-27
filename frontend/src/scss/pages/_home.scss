@@ -15,7 +15,6 @@
         flex-direction: column;
         flex-basis: 250px;
         flex-grow: 1;
-        height: 100%;
         row-gap: 16px;
 
         .deadlines__header {
@@ -33,9 +32,6 @@
             flex-direction: column;
             position: relative;
             row-gap: 16px;
-            flex-grow: 1;
-            height: 100%;
-            overflow: scroll;
         }
 
         .deadline {
@@ -99,7 +95,6 @@
         flex-direction: column;
         flex-basis: 275px;
         flex-grow: 10;
-        height: 100%;
         row-gap: 16px;
 
         .announcements__header {
@@ -111,9 +106,6 @@
             flex-direction: column;
             row-gap: 16px;
             column-gap: 16px;
-            flex-grow: 1;
-            height: 100%;
-            overflow: scroll;
         }
 
         .announcement {

@@ -15,8 +15,25 @@
     .nav-bar {
         @include top-app-bar.fill-color(variables.$navy);
 
+        &--shifted-left {
+            left: 256px; // the width of the drawer
+        }
+
         .nav-bar__title {
             color: variables.$white;
         }
+
+        .nav-bar__menu-button {
+            &--hidden {
+                display: none;
+            }
+        }
+    }
+
+    .nav-drawer {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
     }
 }
