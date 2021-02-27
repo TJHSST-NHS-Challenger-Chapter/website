@@ -12,8 +12,6 @@
 @include list.core-styles;
 
 .root {
-    display: flex;
-
     .nav-bar {
         @include top-app-bar.fill-color(variables.$navy);
 
