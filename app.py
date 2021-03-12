@@ -38,6 +38,7 @@ fake_announcements = [{
 
 @app.route("/")
 def index():
+    # TODO: fetch classroom and facebook announcements on each HTTP request
     return render_template("home.html", deadlines=fake_deadlines, announcements=fake_announcements)
 
 if __name__ == "__main__":
