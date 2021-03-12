@@ -64,6 +64,10 @@
                 object-fit: cover;
             }
 
+            .officer__social {
+                color: variables.$gold;
+            }
+
             .officer__info {
                 flex-grow: 1;
                 padding-left: 24px;
