@@ -9,7 +9,8 @@ for (const nav_link of drawer.root.querySelectorAll(".mdc-list-item")) {
     add_ripple(nav_link)
     nav_link.addEventListener("click", e => {
         e.preventDefault()
-        console.log(`[load ${nav_link.getAttribute("href")}]`)
+        // open link after delay to allow ripple animation to show
+        window.setTimeout(() => (window.location.href = nav_link.getAttribute("href")), 150)
     })
 }
 
@@ -23,15 +24,13 @@ const on_mq_change = ({ matches }) => {
     // Switches the drawer from modal to always visible once the breakpoint is reached.
     drawer.root.classList[matches ? "remove" : "add"]("mdc-drawer--modal")
 
-    // Shifts the nav_bar to the left to accomodate for the space taken up once the drawer is always visible.
+    // Shifts the nav_bar and root to the left to accomodate for the space taken up once the drawer is always visible.
     nav_bar.root.classList[matches ? "add" : "remove"]("nav-bar--shifted-left")
+    document.querySelector(".root").classList[matches ? "add" : "remove"]("root--shifted-left")
 
     // Hide the nav-bar's button to open the drawer when the drawer is always visible.
     const nav_button = nav_bar.root.querySelector(".nav-bar__menu-button")
     nav_button.classList[matches ? "add" : "remove"]("nav-bar__menu-button--hidden")
-
-    const root = document.querySelector(".root")
-    root.style.paddingLeft = matches ? `${drawer.root.getBoundingClientRect().width}px` : null
 }
 mq.addEventListener("change", on_mq_change)
 on_mq_change({ matches: mq.matches })

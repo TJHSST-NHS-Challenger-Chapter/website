@@ -4,9 +4,6 @@
 @use "../base/typography";
 @use "../abstracts/variables";
 
-@include icon-button.core-styles;
-@include card.core-styles;
-
 .about main {
     gap: 32px;
 
@@ -59,8 +56,6 @@
             .officer__image {
                 @include typography.body-1;
 
-                width: 64px;
-                height: 72px;
                 object-fit: cover;
             }
 

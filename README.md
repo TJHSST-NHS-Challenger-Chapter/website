@@ -104,6 +104,8 @@ The `templates/` folder holds templates for the flask app.
 │   │   │   │   ├── _faq.scss
 │   │   │   │   ├── _home.scss
 │   │   │   │   └── _service.scss
+│   │   │   ├── vendors
+│   │   │   │   └── _material.scss
 │   │   │   └── main.scss
 │   │   └── templates
 │   │       ├── about.html

@@ -16,8 +16,6 @@ module.exports = ({ production, development }) => ({
     },
     watch: development,
     output: {
-        // This is necessary for webpack to compile
-        // But we never use style-bundle.js
         path: path.join(process.cwd(), "build"),
         // "styles" generates a useless .js file, so we mark it for deletion
         filename: data => (data.chunk.name === "styles" ? "DELETE_ME" : "[name].js"),
@@ -39,26 +37,33 @@ module.exports = ({ production, development }) => ({
             },
             {
                 test: /\.scss$/,
-                use: [
-                    {
-                        loader: "file-loader",
-                        options: { name: "styles.css" }
-                    },
-                    {
-                        loader: "extract-loader"
-                    },
-                    {
-                        loader: "css-loader"
-                    },
-                    {
-                        loader: "postcss-loader",
-                        options: {
-                            postcssOptions: {
-                                plugins: [autoprefixer()]
-                            }
+                use: (() => {
+                    const use = []
+                    use.push(
+                        {
+                            loader: "file-loader",
+                            options: { name: "styles.css" }
+                        },
+                        {
+                            loader: "extract-loader"
+                        },
+                        {
+                            loader: "css-loader"
                         }
-                    },
-                    {
+                    )
+
+                    // only use autoprefixer in production to speed up development compilation
+                    production &&
+                        use.push({
+                            loader: "postcss-loader",
+                            options: {
+                                postcssOptions: {
+                                    plugins: [autoprefixer()]
+                                }
+                            }
+                        })
+
+                    use.push({
                         loader: "sass-loader",
                         options: {
                             // Prefer Dart Sass
@@ -70,8 +75,10 @@ module.exports = ({ production, development }) => ({
                                 includePaths: ["./node_modules"]
                             }
                         }
-                    }
-                ]
+                    })
+
+                    return use
+                })()
             }
         ]
     },

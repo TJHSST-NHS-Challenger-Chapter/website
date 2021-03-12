@@ -6,12 +6,11 @@
 
 @use "../abstracts/variables";
 
-@include icon-button.core-styles;
-@include drawer.core-styles;
-@include drawer.modal-core-styles;
-@include list.core-styles;
-
 .root {
+    &--shifted-left {
+        padding-left: 256px; // the width of the drawer
+    }
+
     .nav-bar {
         @include top-app-bar.fill-color(variables.$navy);
 

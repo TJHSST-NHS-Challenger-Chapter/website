@@ -5,8 +5,6 @@
 @use "../base/typography";
 @use "../abstracts/variables";
 
-@include card.core-styles;
-
 .home main {
     gap: 32px;
 
