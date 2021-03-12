@@ -14,6 +14,8 @@
         display: flex;
         flex-direction: column;
         row-gap: 16px;
+        flex-basis: 325px;
+        flex-grow: 10;
 
         .about-us__header {
             @include typography.heading-4;
@@ -32,7 +34,9 @@
         display: flex;
         flex-direction: column;
         row-gap: 16px;
+        flex-basis: 350px;
         flex-grow: 1;
+        flex-shrink: 0;
 
         .officers__header {
             @include typography.heading-4;
@@ -71,6 +75,49 @@
                 .officer__position {
                     @include typography.body-2;
                 }
+            }
+        }
+    }
+
+    .pillars {
+        .pillars__header {
+            @include typography.heading-4;
+        }
+
+        .pillars__list {
+            display: flex;
+            flex-direction: column;
+            row-gap: 16px;
+            margin-top: 16px;
+        }
+
+        .pillar {
+            @include card.outline(rgba($color: variables.$navy, $alpha: 0.12), 1px);
+
+            display: flex;
+            flex-direction: column;
+
+            .pillar__top {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 16px 24px;
+                border-bottom: 1px solid rgba($color: variables.$navy, $alpha: 0.12);
+
+                .pillar__icon {
+                    width: auto;
+                    margin-right: 24px;
+                }
+
+                .pillar__title {
+                    @include typography.heading-6;
+                }
+            }
+
+            .pillar__description {
+                @include typography.body-1;
+
+                padding: 12px 24px;
             }
         }
     }
