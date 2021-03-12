@@ -2,36 +2,48 @@
 
 @use "../abstracts/variables";
 
-@mixin heading-1 {
+h1,
+.typography--heading-1 {
     @include typography(headline1);
     color: variables.$navy;
 }
-@mixin heading-2 {
+
+h2,
+.typography--heading-2 {
     @include typography(headline2);
     color: variables.$navy;
 }
-@mixin heading-3 {
+
+h3,
+.typography--heading-3 {
     @include typography(headline3);
     color: variables.$navy;
 }
-@mixin heading-4 {
+
+h4,
+.typography--heading-4 {
     @include typography(headline4);
     color: variables.$navy;
 }
-@mixin heading-5 {
+
+h5,
+.typography--heading-5 {
     @include typography(headline5);
     color: variables.$navy;
 }
-@mixin heading-6 {
+
+h6,
+.typography--heading-6 {
     @include typography(headline6);
     color: variables.$navy;
 }
 
-@mixin body-1 {
+p,
+.typography--body-1 {
     @include typography(body1);
     color: variables.$navy;
 }
-@mixin body-2 {
+.typography--body-2 {
     @include typography(body2);
     color: rgba($color: variables.$navy, $alpha: 0.6);
 }

@@ -1,7 +1,6 @@
 @use "@material/icon-button";
 @use "@material/card";
 
-@use "../base/typography";
 @use "../abstracts/variables";
 
 .about main {
@@ -14,13 +13,7 @@
         flex-basis: 325px;
         flex-grow: 10;
 
-        .about-us__header {
-            @include typography.heading-4;
-        }
-
         .about-us__body {
-            @include typography.body-1;
-
             .about-us__gold-text {
                 color: variables.$gold;
             }
@@ -34,10 +27,6 @@
         flex-basis: 350px;
         flex-grow: 1;
         flex-shrink: 0;
-
-        .officers__header {
-            @include typography.heading-4;
-        }
 
         .officers__list {
             display: flex;
@@ -54,8 +43,6 @@
             overflow: hidden;
 
             .officer__image {
-                @include typography.body-1;
-
                 object-fit: cover;
             }
 
@@ -66,23 +53,11 @@
             .officer__info {
                 flex-grow: 1;
                 padding-left: 24px;
-
-                .officer__name {
-                    @include typography.heading-6;
-                }
-
-                .officer__position {
-                    @include typography.body-2;
-                }
             }
         }
     }
 
     .pillars {
-        .pillars__header {
-            @include typography.heading-4;
-        }
-
         .pillars__list {
             display: flex;
             flex-direction: column;
@@ -107,15 +82,9 @@
                     width: auto;
                     margin-right: 24px;
                 }
-
-                .pillar__title {
-                    @include typography.heading-6;
-                }
             }
 
             .pillar__description {
-                @include typography.body-1;
-
                 padding: 12px 24px;
             }
         }

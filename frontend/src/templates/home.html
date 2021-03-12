@@ -78,7 +78,7 @@
                 <li class="deadline mdc-card">
                     <div class="deadline__top">
                         <h6 class="deadline__header">{{ deadline["title"] }} due {{ deadline["due_date"] }}</h6>
-                        <p class="deadline__body">{{ deadline["description"] }}</p>
+                        <p class="deadline__body typography--body-2" typography--body-2>{{ deadline["description"] }}</p>
                     </div>
                     <div class="deadline__bottom">
                         <button class="deadline__button mdc-button">
@@ -97,8 +97,8 @@
                 {% for announcement in announcements %}
                 <li class="announcement mdc-card mdc-card--outlined">
                     <h6 class="announcement__header">{{ announcement["title"] }}</h6>
-                    <span class="announcement__date">{{ announcement["date"] }}</span>
-                    <p class="announcement__body">{{ announcement["description"] }}</p>
+                    <span class="announcement__date typography--body-2">{{ announcement["date"] }}</span>
+                    <p class="announcement__body typography--body-2">{{ announcement["description"] }}</p>
                     {% if announcement.link %}
                     <a
                        href="{{ announcement.link }}"
