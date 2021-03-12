@@ -41,5 +41,11 @@ def index():
     # TODO: fetch classroom and facebook announcements on each HTTP request
     return render_template("home.html", deadlines=fake_deadlines, announcements=fake_announcements)
 
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
