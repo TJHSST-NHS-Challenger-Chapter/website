@@ -73,9 +73,9 @@
                 <span class="mdc-button__label">Add All to Calendar</span>
             </button>
 
-            <div class="deadlines__list">
+            <ul class="deadlines__list">
                 {% for deadline in deadlines %}
-                <div class="deadline mdc-card">
+                <li class="deadline mdc-card">
                     <div class="deadline__top">
                         <h6 class="deadline__header">{{ deadline["title"] }} due {{ deadline["due_date"] }}</h6>
                         <p class="deadline__body">{{ deadline["description"] }}</p>
@@ -86,16 +86,16 @@
                             <span class="mdc-button__label">Add to Calendar</span>
                         </button>
                     </div>
-                </div>
+                </li>
                 {% endfor %}
-            </div>
+            </ul>
         </section>
 
         <section class="announcements">
             <h4 class="announcements__header">Announcements</h4>
-            <div class="announcements__list">
+            <ul class="announcements__list">
                 {% for announcement in announcements %}
-                <div class="announcement mdc-card mdc-card--outlined">
+                <li class="announcement mdc-card mdc-card--outlined">
                     <h6 class="announcement__header">{{ announcement["title"] }}</h6>
                     <span class="announcement__date">{{ announcement["date"] }}</span>
                     <p class="announcement__body">{{ announcement["description"] }}</p>
@@ -109,9 +109,9 @@
                         <span class="mdc-button__label">Open</span>
                     </a>
                     {% endif %}
-                </div>
+                </li>
                 {% endfor %}
-            </div>
+            </ul>
         </section>
     </main>
 </body>
