@@ -5,8 +5,6 @@
 @use "../abstracts/variables";
 
 .home main {
-    gap: 32px;
-
     .deadlines {
         display: flex;
         flex-direction: column;

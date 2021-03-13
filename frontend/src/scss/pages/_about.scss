@@ -4,8 +4,6 @@
 @use "../abstracts/variables";
 
 .about main {
-    gap: 32px;
-
     .about-us {
         display: flex;
         flex-direction: column;
