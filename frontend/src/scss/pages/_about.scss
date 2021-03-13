@@ -9,11 +9,12 @@
     .about-us {
         display: flex;
         flex-direction: column;
-        row-gap: 16px;
         flex-basis: 325px;
         flex-grow: 10;
 
         .about-us__body {
+            margin-top: 16px;
+
             .about-us__gold-text {
                 color: variables.$gold;
             }
@@ -23,7 +24,6 @@
     .officers {
         display: flex;
         flex-direction: column;
-        row-gap: 16px;
         flex-basis: 350px;
         flex-grow: 1;
         flex-shrink: 0;
@@ -31,7 +31,11 @@
         .officers__list {
             display: flex;
             flex-direction: column;
-            row-gap: 16px;
+            margin-top: 16px;
+
+            .officer:not(:last-child) {
+                margin-bottom: 16px;
+            }
         }
 
         .officer {
@@ -61,8 +65,11 @@
         .pillars__list {
             display: flex;
             flex-direction: column;
-            row-gap: 16px;
             margin-top: 16px;
+
+            .pillar:not(:last-child) {
+                margin-bottom: 16px;
+            }
         }
 
         .pillar {
