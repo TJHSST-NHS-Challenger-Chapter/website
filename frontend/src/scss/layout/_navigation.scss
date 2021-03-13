@@ -14,8 +14,11 @@
     .nav-bar {
         @include top-app-bar.fill-color(variables.$navy);
 
+        width: 100vw;
+
         &--shifted-left {
             left: 256px; // the width of the drawer
+            width: calc(100vw - 256px);
         }
 
         .nav-bar__title {

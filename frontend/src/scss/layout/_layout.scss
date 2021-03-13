@@ -9,7 +9,8 @@ html {
             position: relative;
             display: flex;
             flex-wrap: wrap;
-            max-width: 1020px;
+            max-width: min(100vw, 1020px);
+            overflow-x: hidden;
             margin: -16px;
 
             & > * {
@@ -17,17 +18,17 @@ html {
             }
 
             // general layout styles (belong here so that the breakpoints stay the same on different pages)
-            padding-left: 16px;
-            padding-right: 16px;
+            padding-left: calc(16px - 16px);
+            padding-right: calc(16px - 16px);
             @media screen and (min-width: 720px) {
                 top: 28px;
-                padding-left: 48px;
-                padding-right: 48px;
+                padding-left: calc(48px - 16px);
+                padding-right: calc(48px - 16px);
             }
             @media screen and (min-width: 980px) {
                 top: 40px;
-                padding-left: 72px;
-                padding-right: 72px;
+                padding-left: calc(72px - 16px);
+                padding-right: calc(72px - 16px);
             }
         }
     }

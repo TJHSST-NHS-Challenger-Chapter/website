@@ -32,5 +32,10 @@ const on_mq_change = ({ matches }) => {
     const nav_button = nav_bar.root.querySelector(".nav-bar__menu-button")
     nav_button.classList[matches ? "add" : "remove"]("nav-bar__menu-button--hidden")
 }
-mq.addEventListener("change", on_mq_change)
+if ("addEventListener" in mq) {
+    mq.addEventListener("change", on_mq_change)
+} else {
+    // handle deprecated API for safari compatibility
+    mq.addListener(on_mq_change)
+}
 on_mq_change({ matches: mq.matches })
