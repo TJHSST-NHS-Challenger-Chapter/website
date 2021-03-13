@@ -5,26 +5,28 @@
 @use "../abstracts/variables";
 
 .home main {
-    gap: 32px;
-
     .deadlines {
         display: flex;
         flex-direction: column;
         flex-basis: 250px;
         flex-grow: 1;
-        row-gap: 16px;
 
         .deadlines__button {
             @include button.outline-color(rgba($color: variables.$gold, $alpha: 0.12));
 
             align-self: flex-start;
+            margin-top: 16px;
         }
 
         .deadlines__list {
             display: flex;
             flex-direction: column;
             position: relative;
-            row-gap: 16px;
+            margin-top: 16px;
+
+            .deadline:not(:last-child) {
+                margin-bottom: 16px;
+            }
         }
 
         .deadline {
@@ -36,7 +38,6 @@
             display: flex;
             flex-direction: column;
             flex-shrink: 0;
-            column-gap: initial;
             overflow: hidden;
 
             .deadline__top {
@@ -84,13 +85,15 @@
         flex-direction: column;
         flex-basis: 275px;
         flex-grow: 10;
-        row-gap: 16px;
 
         .announcements__list {
             display: flex;
             flex-direction: column;
-            row-gap: 16px;
-            column-gap: 16px;
+            margin-top: 16px;
+
+            .announcement:not(:last-child) {
+                margin-bottom: 16px;
+            }
         }
 
         .announcement {
