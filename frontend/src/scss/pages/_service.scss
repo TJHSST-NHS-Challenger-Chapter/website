@@ -1,0 +1,26 @@
+@use "../abstracts/variables";
+
+.service main {
+    .submit,
+    .find {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        & > *:not(:last-child) {
+            margin-bottom: 16px;
+        }
+
+        .submit__body,
+        .find__body {
+            .submit__gold-text,
+            .find__gold-text {
+                color: variables.$gold;
+            }
+        }
+    }
+
+    .find {
+        align-items: initial;
+    }
+}

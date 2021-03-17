@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script src="{{ url_for('static', filename='service.js') }}" type="module"></script>
+    <title>Service - TJHSST NHS Challenger Chapter</title>
+</head>
+
+<body class="service root">
+    <!-- #region navigation -->
+    <header class="nav-bar mdc-top-app-bar mdc-top-app-bar--fixed">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <button
+                        class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                        aria-label="Open navigation menu">menu</button>
+                <span class="nav-bar__title mdc-top-app-bar__title">Service</span>
+            </section>
+        </div>
+    </header>
+
+    <aside class="nav-drawer mdc-drawer mdc-drawer--modal">
+        <div class="mdc-drawer__header">
+            <h3 class="mdc-drawer__title">TJHSST NHS</h3>
+            <h6 class="mdc-drawer__subtitle">Challenger Chapter</h6>
+        </div>
+        <div class="mdc-drawer__content">
+            <nav class="mdc-list">
+                <a class="mdc-list-item" href="/" aria-current="page">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+                    <span class="mdc-list-item__text">Home</span>
+                </a>
+                <a class="mdc-list-item" href="/about">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
+                    <span class="mdc-list-item__text">About</span>
+                </a>
+                <a class="mdc-list-item mdc-list-item--activated" href="/service">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">groups</i>
+                    <span class="mdc-list-item__text">Service</span>
+                </a>
+                <a class="mdc-list-item" href="/faq">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">forum</i>
+                    <span class="mdc-list-item__text">FAQ</span>
+                </a>
+                <a class="mdc-list-item" href="/contact">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">mail_outline</i>
+                    <span class="mdc-list-item__text">Contact Us!</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="mdc-drawer-scrim"></div>
+    <!-- #endregion -->
+
+    <main class="mdc-top-app-bar--fixed-adjust">
+        <section class="submit">
+            <h4 class="submit__header">Submit Service Opportunities</h4>
+            <p class="submit__body">Whether or not you have a fully-fledged opportunity searching for volunteers or just an idea with a lot of potential, we would love to hear it: fill out the form below! We have many members who are willing to volunteer and would love the opportunity. Make sure to specify whether or not the service can be done virtually. Questions or comments not related to service opportunities should be sent through the <a class="submit__gold-text" href="/contact">contact form</a>.
+            </p>
+            <a class="submit__button mdc-button mdc-button--outlined" href="https://docs.google.com/forms/d/e/1FAIpQLSfrESidSZ9PjFLnajgffgwMhaaW7Lyr1M4SBVT5ZOc5IbcC2g/viewform" target="_blank" rel="noopener noreferrer">
+                <div class="mdc-button__ripple"></div>
+                <i class="material-icons mdc-button__icon" aria-hidden="true">list</i>
+                <span class="mdc-button__label">Submit Service Opportunity</span>
+            </a>
+        </section>
+
+        <section class="find">
+            <h4 class="find__header">Find Service Opportunities</h4>
+            <p class="find__body">This google spreadsheet is a collation of service opportunities curated by the TJHSST NHS Service Chairs (learn more about them on the <a class="find__gold-text" href="/about">about</a> page!). Click <a class="find__gold-text" href="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQHh3xeq878ts-kowr_nqxdxfCced8yPq58pXDR6rrx36HNEFJjJXfMbz21ziTOVHDlFt6pWmPp8ghr/pubhtml?widget=true&headers=false" target="_blank" rel="noopener noreferrer">here</a> to open the spreadsheet in fullscreen.</p>
+            <iframe src="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQHh3xeq878ts-kowr_nqxdxfCced8yPq58pXDR6rrx36HNEFJjJXfMbz21ziTOVHDlFt6pWmPp8ghr/pubhtml?widget=true&headers=false"></iframe>
+        </section>
+    </main>
+</body>
+
+</html>
