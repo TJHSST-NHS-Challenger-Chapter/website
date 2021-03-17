@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script src="{{ url_for('static', filename='faq.js') }}" type="module"></script>
+    <title>FAQ - TJHSST NHS Challenger Chapter</title>
+</head>
+
+<body class="faq root">
+    <!-- #region navigation -->
+    <header class="nav-bar mdc-top-app-bar mdc-top-app-bar--fixed">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <button
+                        class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                        aria-label="Open navigation menu">menu</button>
+                <span class="nav-bar__title mdc-top-app-bar__title">FAQ</span>
+            </section>
+        </div>
+    </header>
+
+    <aside class="nav-drawer mdc-drawer mdc-drawer--modal">
+        <div class="mdc-drawer__header">
+            <h3 class="mdc-drawer__title">TJHSST NHS</h3>
+            <h6 class="mdc-drawer__subtitle">Challenger Chapter</h6>
+        </div>
+        <div class="mdc-drawer__content">
+            <nav class="mdc-list">
+                <a class="mdc-list-item" href="/" aria-current="page">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+                    <span class="mdc-list-item__text">Home</span>
+                </a>
+                <a class="mdc-list-item" href="/about">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
+                    <span class="mdc-list-item__text">About</span>
+                </a>
+                <a class="mdc-list-item" href="/service">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">groups</i>
+                    <span class="mdc-list-item__text">Service</span>
+                </a>
+                <a class="mdc-list-item mdc-list-item--activated" href="/faq">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">forum</i>
+                    <span class="mdc-list-item__text">FAQ</span>
+                </a>
+                <a class="mdc-list-item" href="/contact">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">mail_outline</i>
+                    <span class="mdc-list-item__text">Contact Us!</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="mdc-drawer-scrim"></div>
+    <!-- #endregion -->
+
+    <main class="mdc-top-app-bar--fixed-adjust">
+        <section class="general">
+            <h4 class="general__header">Fully Anticipated Questions (FAQs)</h4>
+            <p class="general__body">If your question is not answered, just send us an email through the <a class="general__gold-text" href="/contact">contact</a> page.</p>
+            <ul class="general__list">
+                <!-- TODO: fill with actual FAQ -->
+                <li class="question mdc-card mdc-card--outlined">
+                    <div class="question__top">
+                        <h6 class="question__header">Question Title</h6>
+                        <i class="question__icon material-icons">expand_more</i>
+                    </div>
+                    <p class="typography--body-2 question__answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec tincidunt ipsum. Praesent in mauris sit amet lorem ullamcorper vulputate semper vel tellus. Etiam sed consequat dui. Mauris felis dolor, interdum quis tempor eget, euismod tincidunt sem. Mauris in turpis vitae mi congue tempus non at nibh. Duis aliquet semper pellentesque. Morbi tortor lectus, dictum ac sapien a, imperdiet maximus augue. Praesent sit amet dui tempor nisl scelerisque scelerisque. Cras faucibus felis lectus. Sed sed iaculis velit. Vivamus vitae orci sit amet massa blandit tincidunt nec eget nunc. Maecenas tristique efficitur pretium. Donec eget congue ipsum. Proin ut metus bibendum mi congue efficitur ac ut est.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="application">
+            <h4 class="application__header">Application Process</h4>
+            <ul class="application__list">
+                <!-- TODO: fill with actual application process FAQ -->
+                <li class="question mdc-card mdc-card--outlined">
+                    <div class="question__top">
+                        <h6 class="question__header">Question Title</h6>
+                        <i class="question__icon material-icons">expand_more</i>
+                    </div>
+                    <p class="typography--body-2 question__answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec tincidunt ipsum. Praesent in mauris sit amet lorem ullamcorper vulputate semper vel tellus. Etiam sed consequat dui. Mauris felis dolor, interdum quis tempor eget, euismod tincidunt sem. Mauris in turpis vitae mi congue tempus non at nibh. Duis aliquet semper pellentesque. Morbi tortor lectus, dictum ac sapien a, imperdiet maximus augue. Praesent sit amet dui tempor nisl scelerisque scelerisque. Cras faucibus felis lectus. Sed sed iaculis velit. Vivamus vitae orci sit amet massa blandit tincidunt nec eget nunc. Maecenas tristique efficitur pretium. Donec eget congue ipsum. Proin ut metus bibendum mi congue efficitur ac ut est.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+
+</html>

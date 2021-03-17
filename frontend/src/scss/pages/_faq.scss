@@ -1,0 +1,86 @@
+@use "@material/ripple";
+
+@use "../abstracts/variables";
+
+.faq main {
+    .general {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-basis: 400px;
+
+        .general__gold-text {
+            color: variables.$gold;
+        }
+
+        .general__body {
+            margin-top: 16px;
+        }
+
+        .general__list {
+            margin-top: 16px;
+
+            & > .question:not(:last-child) {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    .application {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-basis: 400px;
+
+        .application__list {
+            margin-top: 16px;
+
+            & > .question:not(:last-child) {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    .question {
+        @include ripple.surface;
+        @include ripple.radius-bounded;
+        @include ripple.states;
+
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        cursor: pointer;
+
+        .question__top {
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+        }
+
+        .question__header {
+            flex-grow: 1;
+            margin-right: 12px;
+        }
+
+        .question__icon {
+            padding-top: 0;
+            padding-bottom: 0;
+            height: auto;
+        }
+
+        .question__answer {
+            padding: 12px 24px;
+            display: none;
+        }
+
+        &--expanded {
+            .question__top {
+                border-bottom: 1px solid rgba($color: variables.$navy, $alpha: 0.12);
+            }
+
+            .question__answer {
+                display: block;
+            }
+        }
+    }
+}
