@@ -1,7 +1,9 @@
 const path = require("path")
 const EventHooksPlugin = require("event-hooks-webpack-plugin")
+const TerserPlugin = require("terser-webpack-plugin")
 const fs = require("fs")
 const autoprefixer = require("autoprefixer")
+const purgecss = require("@fullhuman/postcss-purgecss")
 
 module.exports = ({ production, development }) => ({
     mode: production ? "production" : development ? "development" : "none",
@@ -52,13 +54,13 @@ module.exports = ({ production, development }) => ({
                         }
                     )
 
-                    // only use autoprefixer in production to speed up development compilation
+                    // only use CSS changes in production to speed up development compilation
                     production &&
                         use.push({
                             loader: "postcss-loader",
                             options: {
                                 postcssOptions: {
-                                    plugins: [autoprefixer()]
+                                    plugins: [purgecss({ content: ["./src/**/*.html"] }), autoprefixer()]
                                 }
                             }
                         })
@@ -89,5 +91,8 @@ module.exports = ({ production, development }) => ({
                 if (fs.readdirSync(build).includes("DELETE_ME")) fs.unlinkSync(path.join(build, "DELETE_ME"))
             }
         })
-    ]
+    ],
+    optimization: {
+        minimizer: [new TerserPlugin({ extractComments: false })]
+    }
 })

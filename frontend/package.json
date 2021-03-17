@@ -21,6 +21,7 @@
     "devDependencies": {
         "@babel/core": "^7.12.16",
         "@babel/preset-env": "^7.12.16",
+        "@fullhuman/postcss-purgecss": "^4.0.2",
         "autoprefixer": "^10.2.4",
         "babel-loader": "^8.2.2",
         "css-loader": "^5.0.2",
@@ -31,6 +32,7 @@
         "prettier": "2.2.1",
         "sass": "^1.32.7",
         "sass-loader": "^11.0.1",
+        "terser-webpack-plugin": "^5.1.1",
         "webpack": "^5.22.0",
         "webpack-cli": "^4.5.0"
     },
