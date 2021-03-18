@@ -7,8 +7,8 @@
     .about-us {
         display: flex;
         flex-direction: column;
-        flex-basis: 325px;
-        flex-grow: 10;
+        flex-basis: 250px;
+        flex-grow: 1;
 
         .about-us__body {
             margin-top: 16px;
@@ -23,16 +23,21 @@
         display: flex;
         flex-direction: column;
         flex-basis: 350px;
-        flex-grow: 1;
+        flex-grow: 50;
         flex-shrink: 0;
+
+        .officers__header {
+            margin-bottom: 16px;
+        }
 
         .officers__list {
             display: flex;
-            flex-direction: column;
-            margin-top: 16px;
+            flex-direction: row;
+            flex-wrap: wrap;
 
-            .officer:not(:last-child) {
-                margin-bottom: 16px;
+            margin: -8px;
+            & > .officer {
+                margin: 8px;
             }
         }
 
@@ -41,6 +46,7 @@
             align-items: center;
             flex-direction: row; // need to override the flex direction imposed by card.
             flex-grow: 1;
+            flex-basis: 325px;
             padding-right: 12px;
             overflow: hidden;
 
