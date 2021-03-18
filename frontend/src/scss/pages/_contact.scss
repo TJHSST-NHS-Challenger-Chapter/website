@@ -1,3 +1,5 @@
+@use "@material/button";
+
 @use "../abstracts/variables";
 
 .contact main {
@@ -32,6 +34,10 @@
 
                 & > .contact-form__button:first-child {
                     margin-right: 16px;
+                }
+
+                .contact-form__button--reset {
+                    @include button.outline-color(rgba($color: variables.$gold, $alpha: 0.12));
                 }
             }
         }

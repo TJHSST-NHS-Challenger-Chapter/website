@@ -1,3 +1,5 @@
+@use "@material/button";
+
 @use "../abstracts/variables";
 
 .service main {
@@ -17,6 +19,12 @@
             .find__gold-text {
                 color: variables.$gold;
             }
+        }
+    }
+
+    .submit {
+        .submit__button {
+            @include button.outline-color(rgba($color: variables.$gold, $alpha: 0.12));
         }
     }
 
