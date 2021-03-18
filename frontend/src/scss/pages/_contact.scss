@@ -1,0 +1,39 @@
+@use "../abstracts/variables";
+
+.contact main {
+    .content {
+        .content__gold-text {
+            color: variables.$gold;
+        }
+
+        .content__body {
+            margin-bottom: 48px;
+            // keep synced with media queries from home.scss
+            @media only screen and (min-width: 720px) {
+                margin-bottom: 72px;
+            }
+            // keep synced with media queries from home.scss
+            @media only screen and (min-width: 980px) {
+                margin-bottom: 48px;
+            }
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+
+            & > *:not(:last-child) {
+                margin-bottom: 16px;
+            }
+
+            .contact-form__buttons {
+                display: flex;
+                justify-content: center;
+
+                & > .contact-form__button:first-child {
+                    margin-right: 16px;
+                }
+            }
+        }
+    }
+}

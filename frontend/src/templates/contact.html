@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script src="{{ url_for('static', filename='contact.js') }}" type="module"></script>
+    <title>Contact Us! - TJHSST NHS Challenger Chapter</title>
+</head>
+
+<body class="contact root">
+    <!-- #region navigation -->
+    <header class="nav-bar mdc-top-app-bar mdc-top-app-bar--fixed">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <button
+                        class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                        aria-label="Open navigation menu">menu</button>
+                <span class="nav-bar__title mdc-top-app-bar__title">Contact Us!</span>
+            </section>
+        </div>
+    </header>
+
+    <aside class="nav-drawer mdc-drawer mdc-drawer--modal">
+        <div class="mdc-drawer__header">
+            <h3 class="mdc-drawer__title">TJHSST NHS</h3>
+            <h6 class="mdc-drawer__subtitle">Challenger Chapter</h6>
+        </div>
+        <div class="mdc-drawer__content">
+            <nav class="mdc-list">
+                <a class="mdc-list-item" href="/" aria-current="page">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+                    <span class="mdc-list-item__text">Home</span>
+                </a>
+                <a class="mdc-list-item" href="/about">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
+                    <span class="mdc-list-item__text">About</span>
+                </a>
+                <a class="mdc-list-item" href="/service">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">groups</i>
+                    <span class="mdc-list-item__text">Service</span>
+                </a>
+                <a class="mdc-list-item" href="/faq">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">forum</i>
+                    <span class="mdc-list-item__text">FAQ</span>
+                </a>
+                <a class="mdc-list-item mdc-list-item--activated" href="/contact">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">mail_outline</i>
+                    <span class="mdc-list-item__text">Contact Us!</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="mdc-drawer-scrim"></div>
+    <!-- #endregion -->
+
+    <main class="mdc-top-app-bar--fixed-adjust">
+        <section class="content">
+            <p class="content__body">If you would like to speak with members of TJHSST’s NHS Challenger Chapter, feel free to either ask us through our <a class="content__gold-text" href="https://www.facebook.com/tjhsstnhs/" target="_blank" rel="noopener noreferrer">Facebook group</a> or fill out the form below to send us an email.</p>
+            <form action="{{ url_for('contact') }}" method="POST" enctype="multipart/form-data" class="contact-form">
+                <label class="contact-form__subject mdc-text-field mdc-text-field--outlined">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="subject-label">Subject Line</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="text" name="subject" class="mdc-text-field__input" aria-labelledby="subject-label">
+                </label>
+                <label class="contact-form__message mdc-text-field mdc-text-field--outlined mdc-text-field--textarea">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="message-label">Message</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-text-field__resizer">
+                        <textarea name="message" class="mdc-text-field__input" rows="8" cols="40" aria-labelledby="message-label"></textarea>
+                    </span>
+                </label>
+                <section class="contact-form__buttons">
+                    <button class="contact-form__button contact-form__button--send mdc-button mdc-button--raised">
+                        <span class="mdc-button__ripple"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">send</i>
+                        <span class="mdc-button__label">Send</span>
+                    </button>
+                    <button type="reset" class="contact-form__button contact-form__button--reset mdc-button mdc-button--outlined">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Reset</span>
+                    </button>
+                </section>
+            </form>
+        </section>
+    </main>
+
+    {% if message %}
+    <!-- TODO: handle message with snackbar or dialog -->
+    {% endif %}
+</body>
+
+</html>

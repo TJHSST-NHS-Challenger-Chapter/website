@@ -1,7 +1,7 @@
 # TODO Redirect page requests to serve the actual pages.
 # TODO Create API endpoints for facebook and google classroom announcements.
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from datetime import datetime
 
 app = Flask(
@@ -72,7 +72,7 @@ def get_deadline_by_id(id):
             return deadline
 
 
-@app.route("/about/")
+@app.route("/about")
 def about():
     return render_template("about.html")
 
@@ -87,9 +87,17 @@ def faq():
     return render_template("faq.html")
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
-    return render_template("contact.html")
+    # handle contact form submission
+    if request.method == "POST":
+        subject = request.form.get("subject")
+        message = request.form.get("message")
+        # TODO: send email
+        print(subject, message)
+        return render_template("contact.html", message=True)
+    else:
+        return render_template("contact.html", message=False)
 
 
 if __name__ == "__main__":
