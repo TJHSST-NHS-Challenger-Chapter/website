@@ -1,6 +1,7 @@
 const path = require("path")
 const EventHooksPlugin = require("event-hooks-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
+const CopyPlugin = require("copy-webpack-plugin")
 const fs = require("fs")
 const autoprefixer = require("autoprefixer")
 const purgecss = require("@fullhuman/postcss-purgecss")
@@ -101,7 +102,8 @@ module.exports = ({ production, development }) => ({
                 const build = path.join(__dirname, "build")
                 if (fs.readdirSync(build).includes("DELETE_ME")) fs.unlinkSync(path.join(build, "DELETE_ME"))
             }
-        })
+        }),
+        new CopyPlugin({ patterns: [{ from: "./src/assets", to: "assets" }] })
     ],
     optimization: {
         minimizer: [new TerserPlugin({ extractComments: false })]
