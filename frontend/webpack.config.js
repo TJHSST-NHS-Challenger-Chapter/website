@@ -60,7 +60,18 @@ module.exports = ({ production, development }) => ({
                             loader: "postcss-loader",
                             options: {
                                 postcssOptions: {
-                                    plugins: [purgecss({ content: ["./src/**/*.html"] }), autoprefixer()]
+                                    plugins: [
+                                        purgecss({
+                                            content: ["./src/**/*.html"],
+                                            safelist: [
+                                                /^mdc.*/,
+                                                /.*--shifted-left$/,
+                                                "nav-bar__menu-button--hidden",
+                                                "question--expanded"
+                                            ]
+                                        }),
+                                        autoprefixer()
+                                    ]
                                 }
                             }
                         })
