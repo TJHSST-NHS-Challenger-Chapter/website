@@ -5,3 +5,6 @@ frontend/build
 
 venv
 __pycache__
+
+# google sheets access
+credentials.json
