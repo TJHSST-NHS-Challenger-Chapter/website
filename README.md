@@ -38,7 +38,7 @@ The website uses flask as a backend and requires webpack for frontend developmen
 
 ### `python app.py`
 
-Launches the flask server for development. Required in order to view changes. Additionally, the google sheets API will error if you don't have a file `credentials.json` in the same directory as `app.py`. Ask Jason if you need this file, and if you have it, DO NOT COMMIT IT!
+Launches the flask server for development. Required in order to view changes. Additionally, the google sheets API will error if you don't have a file `credentials.json` in the same directory as `app.py`. If you need this file, download it from the "NHS Website" google drive folder, and if you have it, DO NOT COMMIT IT!
 
 ### `npm run watch` (in `frontend/`)
 
