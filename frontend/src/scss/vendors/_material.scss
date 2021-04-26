@@ -20,3 +20,7 @@
 @include drawer.modal-core-styles;
 @include list.core-styles;
 @include textfield.core-styles;
+
+i.material-icons {
+    user-select: none;
+}
