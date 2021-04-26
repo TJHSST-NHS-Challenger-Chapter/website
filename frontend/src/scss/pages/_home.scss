@@ -109,10 +109,14 @@
 
             .announcement__body {
                 margin: 8px 0;
+
+                .announcement__paragraph:not(:last-child) {
+                    margin-bottom: 8px;
+                }
             }
 
             .announcement__button {
-                width: min-content;
+                align-self: flex-start;
                 margin-left: -8px;
             }
         }

@@ -4,6 +4,7 @@
 from flask import Flask, render_template, request
 
 import gspread
+import re
 from oauth2client.service_account import ServiceAccountCredentials
 
 credential = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", [
@@ -24,12 +25,27 @@ app = Flask(
 @app.route("/")
 def index():
     # TODO: make the fetching faster.  Currently spends 2-3 seconds before page load
-    deadlines, announcements, contact = SPREADSHEETS.worksheets()
-    print("announcements", announcements.get_all_records())
-    print("deadlines", deadlines.get_all_records())
+    deadlines, announcements, contact = (
+        s.get_all_records() for s in SPREADSHEETS.worksheets())
+    # from https://daringfireball.net/2010/07/improved_regex_for_matching_urls
+    url_regex = re.compile(
+        r"""(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))""")
+    # from https://stackoverflow.com/questions/42407785/regex-extract-email-from-strings
+    email_regex = re.compile(
+        r"([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)")
+    # activate links and then make emails clickable
+    announcements = [{
+        **a, "description":
+        email_regex.sub(
+            "<a href='mailto:\g<0>' target='_blank' rel='noopener noreferrer' class='typography--link'>\g<0></a>",
+            url_regex.sub(
+                "<a href='\g<0>' target='_blank' rel='noopener noreferrer' class='typography--link'>\g<0></a>",
+                a["description"]))}
+        for a in announcements]
+
     return render_template("home.html",
-                           deadlines=deadlines.get_all_records(),
-                           announcements=announcements.get_all_records())
+                           deadlines=deadlines,
+                           announcements=announcements)
 
 
 # @app.route("/api/v1/deadlines/<id>")
