@@ -47,3 +47,7 @@ p,
     @include typography(body2);
     color: rgba($color: variables.$navy, $alpha: 0.6);
 }
+
+.typography--link {
+    color: variables.$gold;
+}

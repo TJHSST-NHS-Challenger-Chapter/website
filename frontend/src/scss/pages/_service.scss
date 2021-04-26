@@ -12,14 +12,6 @@
         & > *:not(:last-child) {
             margin-bottom: 16px;
         }
-
-        .submit__body,
-        .find__body {
-            .submit__gold-text,
-            .find__gold-text {
-                color: variables.$gold;
-            }
-        }
     }
 
     .submit {
