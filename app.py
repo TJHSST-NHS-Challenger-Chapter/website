@@ -1,7 +1,7 @@
 # TODO Redirect page requests to serve the actual pages.
 # TODO Create API endpoints for facebook and google classroom announcements.
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 import gspread
 import re
@@ -25,8 +25,8 @@ app = Flask(
 @app.route("/")
 def index():
     # TODO: make the fetching faster.  Currently spends 2-3 seconds before page load
-    deadlines, announcements, contact = (
-        s.get_all_records() for s in SPREADSHEETS.worksheets())
+    deadlines, announcements = (s.get_all_records()
+                                for s in SPREADSHEETS.worksheets()[:2])
     # from https://daringfireball.net/2010/07/improved_regex_for_matching_urls
     url_regex = re.compile(
         r"""(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))""")
@@ -76,13 +76,16 @@ def faq():
 def contact():
     # handle contact form submission
     if request.method == "POST":
-        subject = request.form.get("subject")
-        message = request.form.get("message")
-        # TODO: send email
-        print(subject, message)
-        return render_template("contact.html", message=True)
+        form_results = request.get_json()
+        email = form_results["email"]
+        subject = form_results["subject"]
+        message = form_results["message"]
+        # write to spreadsheet
+        contact = SPREADSHEETS.get_worksheet(2)
+        contact.append_row([email, subject, message])
+        return jsonify(success=True)
     else:
-        return render_template("contact.html", message=False)
+        return render_template("contact.html")
 
 
 if __name__ == "__main__":

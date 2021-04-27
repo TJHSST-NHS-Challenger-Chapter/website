@@ -68,6 +68,16 @@
         <section class="content">
             <p class="content__body">If you would like to speak with members of TJHSST’s NHS Challenger Chapter, feel free to either ask us through our <a class="typography--link" href="https://www.facebook.com/tjhsstnhs/" target="_blank" rel="noopener noreferrer">Facebook group</a> or fill out the form below to send us an email.</p>
             <form action="{{ url_for('contact') }}" method="POST" enctype="multipart/form-data" class="contact-form">
+                <label class="contact-form__email mdc-text-field mdc-text-field--outlined">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="email-label">Email Address</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="email" name="email" class="mdc-text-field__input" aria-labelledby="email-label" required>
+                </label>
                 <label class="contact-form__subject mdc-text-field mdc-text-field--outlined">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
@@ -76,7 +86,7 @@
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="text" name="subject" class="mdc-text-field__input" aria-labelledby="subject-label">
+                    <input type="text" name="subject" class="mdc-text-field__input" autocomplete="off" aria-labelledby="subject-label" required>
                 </label>
                 <label class="contact-form__message mdc-text-field mdc-text-field--outlined mdc-text-field--textarea">
                     <span class="mdc-notched-outline">
@@ -87,7 +97,7 @@
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
                     <span class="mdc-text-field__resizer">
-                        <textarea name="message" class="mdc-text-field__input" rows="8" cols="40" aria-labelledby="message-label"></textarea>
+                        <textarea name="message" class="mdc-text-field__input" rows="8" cols="40" aria-labelledby="message-label" required></textarea>
                     </span>
                 </label>
                 <section class="contact-form__buttons">
@@ -104,10 +114,6 @@
             </form>
         </section>
     </main>
-
-    {% if message %}
-    <!-- TODO: handle message with snackbar or dialog -->
-    {% endif %}
 </body>
 
 </html>

@@ -24,6 +24,15 @@
                 margin-bottom: 16px;
             }
 
+            // hack to remove highlighting conflict on Chromium
+            .contact-form__email input:-webkit-autofill,
+            .contact-form__email input:-webkit-autofill:focus,
+            .contact-form__email input:-webkit-autofill:hover,
+            .contact-form__email input:-webkit-autofill:active {
+                -webkit-box-shadow: 0 0 0 1000px white inset;
+                box-shadow: 0 0 0 1000px white inset;
+            }
+
             .contact-form__buttons {
                 display: flex;
                 justify-content: center;

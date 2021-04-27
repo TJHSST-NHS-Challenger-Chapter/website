@@ -3,6 +3,9 @@ import { MDCTextField } from "@material/textfield"
 import { add_ripple } from "../button"
 import "../navigation"
 
+const form = document.querySelector(".contact-form")
+
+const email_text_field = new MDCTextField(document.querySelector(".contact-form__email"))
 const subject_text_field = new MDCTextField(document.querySelector(".contact-form__subject"))
 const message_text_field = new MDCTextField(document.querySelector(".contact-form__message"))
 
@@ -19,6 +22,32 @@ reset_button.root.addEventListener("click", () =>
         text_field.root.querySelector(".mdc-floating-label").classList.remove("mdc-floating-label--float-above")
     })
 )
+
+// intercept submission
+form.addEventListener("submit", e => {
+    e.preventDefault()
+    const action = form.getAttribute("action")
+    const form_data = Object.fromEntries(new FormData(form).entries())
+    // make AJAX request instead
+    fetch(action, {
+        method: "POST",
+        body: JSON.stringify(form_data),
+        headers: {
+            "content-type": "application/json"
+        }
+    })
+        .then(res => res.json())
+        .then(json => {
+            if (json.success) {
+                // display thanks message :)
+                alert("Contact submitted!  Thanks for your input :)")
+                // clear form since it wasn't actually submitted
+                reset_button.root.click()
+            }
+        })
+
+    // needed to stop actual submission
+    return false
 })
 
 // only allow textarea to resize vertically.  CSS property doesn't work since material uses custom JS
