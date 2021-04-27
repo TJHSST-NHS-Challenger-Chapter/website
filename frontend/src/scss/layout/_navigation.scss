@@ -7,6 +7,8 @@
 @use "../abstracts/variables";
 
 .root {
+    overscroll-behavior: none;
+
     &--shifted-left {
         padding-left: 256px; // the width of the drawer
     }
