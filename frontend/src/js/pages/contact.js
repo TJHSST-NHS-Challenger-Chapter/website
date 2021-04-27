@@ -9,13 +9,16 @@ const message_text_field = new MDCTextField(document.querySelector(".contact-for
 const send_button = add_ripple(document.querySelector(".contact-form__button--send"))
 const reset_button = add_ripple(document.querySelector(".contact-form__button--reset"))
 
-// fix for reset button since the textarea doesn't unfocus by default on reset
-reset_button.root.addEventListener("click", () => {
-    message_text_field.root.classList.remove("mdc-text-field--label-floating")
-    message_text_field.root.classList.remove("mdc-text-field--focused")
-    message_text_field.root.querySelector(".mdc-notched-outline").classList.remove("mdc-notched-outline--notched")
-    message_text_field.root.querySelector(".mdc-notched-outline__notch").style.width = ""
-    message_text_field.root.querySelector(".mdc-floating-label").classList.remove("mdc-floating-label--float-above")
+// fix for reset button since the text fields don't unfocus by default on reset
+reset_button.root.addEventListener("click", () =>
+    [email_text_field, subject_text_field, message_text_field].map(text_field => {
+        text_field.root.classList.remove("mdc-text-field--label-floating")
+        text_field.root.classList.remove("mdc-text-field--focused")
+        text_field.root.querySelector(".mdc-notched-outline").classList.remove("mdc-notched-outline--notched")
+        text_field.root.querySelector(".mdc-notched-outline__notch").style.width = ""
+        text_field.root.querySelector(".mdc-floating-label").classList.remove("mdc-floating-label--float-above")
+    })
+)
 })
 
 // only allow textarea to resize vertically.  CSS property doesn't work since material uses custom JS
