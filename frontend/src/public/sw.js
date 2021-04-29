@@ -1,3 +1,5 @@
+// TODO: Set cache to expire after some time
+
 const CACHE_NAME = "tjhsst-nhs-cache-v1"
 
 self.addEventListener("install", event => {
