@@ -2,6 +2,8 @@
 # TODO Create API endpoints for facebook and google classroom announcements.
 
 from flask import Flask, render_template, request, jsonify
+from ics import Calendar, Event
+from arrow import Arrow
 
 import gspread
 import re
@@ -48,13 +50,36 @@ def index():
                            announcements=announcements)
 
 
-# @app.route("/api/v1/deadlines/<id>")
-# def get_deadline_by_id(id):
-#     """ Returns an iCal calendar event that matches the deadline with the specified id. """
-#     # TODO: The google sheets api allows us to specify the format of the date when we're reading it.  https://developers.google.com/sheets/api/guides/formats.  We should use this.
-#     for deadline in fake_deadlines:
-#         if deadline["id"] == id:
-#             return deadline
+@app.route("/api/v1/deadline/<id>")
+def get_deadline_by_id(id):
+    """ Returns an iCal calendar event that matches the deadline with the specified id. """
+    deadlines = SPREADSHEETS.worksheet("Deadlines").get_all_records()
+    for deadline in deadlines:
+        if deadline["id"] == id:
+            calendar = Calendar()
+            event = Event()
+            event.name = deadline["title"]
+            event.description = deadline["description"]
+            m, d, y = map(int, deadline["due_date"].split("/"))
+            event.begin = Arrow(y, m, d)
+            event.make_all_day()
+            calendar.events.add(event)
+            return str(calendar)
+
+
+@app.route("/api/v1/deadlines")
+def get_deadlines():
+    deadlines = SPREADSHEETS.worksheet("Deadlines").get_all_records()
+    calendar = Calendar()
+    for deadline in deadlines:
+        event = Event()
+        event.name = deadline["title"]
+        event.description = deadline["description"]
+        m, d, y = map(int, deadline["due_date"].split("/"))
+        event.begin = Arrow(y, m, d)
+        event.make_all_day()
+        calendar.events.add(event)
+    return str(calendar)
 
 
 @app.route("/about")
