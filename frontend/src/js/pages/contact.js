@@ -1,10 +1,12 @@
 import { MDCTextField } from "@material/textfield"
+import { MDCSnackbar } from "@material/snackbar"
 
 import { add_ripple } from "../button"
 import "../navigation"
 import "../register"
 
 const form = document.querySelector(".contact-form")
+const snackbar = new MDCSnackbar(document.querySelector(".snackbar"))
 
 const email_text_field = new MDCTextField(document.querySelector(".contact-form__email"))
 const subject_text_field = new MDCTextField(document.querySelector(".contact-form__subject"))
@@ -41,8 +43,8 @@ form.addEventListener("submit", e => {
         .then(json => {
             if (json.success) {
                 // display thanks message :)
-                // TODO: replace alert with snackbar notification
-                alert("Contact submitted!  Thanks for your input :)")
+                snackbar.labelText = "Contact submitted!  Thanks for your input :)"
+                snackbar.open()
                 // clear form since it wasn't actually submitted
                 reset_button.root.click()
             }

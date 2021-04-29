@@ -1,6 +1,9 @@
 import { add_ripple } from "../button"
+import { MDCSnackbar } from "@material/snackbar"
 import "../navigation"
 import "../register"
+
+const snackbar = new MDCSnackbar(document.querySelector(".snackbar"))
 
 // add classes, since Markdown doesn't
 document.querySelectorAll(".announcement__body > *, .deadline__body > *").forEach(child => {
@@ -29,10 +32,13 @@ calendar_buttons.map(b =>
                 anchor.click()
                 window.URL.revokeObjectURL(url)
                 anchor.remove()
+                // snackbar alert
+                snackbar.labelText = "Event downloaded Successfully!"
+                snackbar.open()
             })
             .catch(() => {
-                // TODO: replace alert with snackbar notification
-                alert("Something went wrong...")
+                snackbar.labelText = "Something went wrong..."
+                snackbar.open()
             })
     })
 )
@@ -52,10 +58,13 @@ calendar_all_button.root.addEventListener("click", () => {
             anchor.click()
             window.URL.revokeObjectURL(url)
             anchor.remove()
+            // snackbar alert
+            snackbar.labelText = "Events downloaded Successfully!"
+            snackbar.open()
         })
         .catch(() => {
-            // TODO: replace alert with snackbar notification
-            alert("Something went wrong...")
+            snackbar.labelText = "Something went wrong..."
+            snackbar.open()
         })
 })
 
