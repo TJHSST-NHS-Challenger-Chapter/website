@@ -21,6 +21,12 @@ app = Flask(
 )
 
 
+def date_from_str(input: str):
+    """ Calculates an arrow date given a string `input` in m/d/y notation. """
+    m, d, y = map(int, input.split("/"))
+    return Arrow(y, m, d)
+
+
 @app.route("/")
 def index():
     # TODO: make the fetching faster.  Currently spends 2-3 seconds before page load
@@ -32,9 +38,12 @@ def index():
     # from https://stackoverflow.com/questions/42407785/regex-extract-email-from-strings
     email_regex = re.compile(
         r"([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)")
-    # activate links and then make emails clickable
     announcements = [{
-        **a, "description":
+        **a,
+        # show "3 days ago" instead of a date, for example
+        "date": date_from_str(a["date"]).humanize(),
+        # activate links and then make emails clickable
+        "description":
         email_regex.sub(
             "<a href='mailto:\g<0>' target='_blank' rel='noopener noreferrer' class='typography--link'>\g<0></a>",
             url_regex.sub(
@@ -57,8 +66,7 @@ def get_deadline_by_id(id):
             event = Event()
             event.name = deadline["title"]
             event.description = deadline["description"]
-            m, d, y = map(int, deadline["due_date"].split("/"))
-            event.begin = Arrow(y, m, d)
+            event.begin = date_from_str(deadline["due_date"])
             event.make_all_day()
             calendar.events.add(event)
             return str(calendar)
@@ -72,8 +80,7 @@ def get_deadlines():
         event = Event()
         event.name = deadline["title"]
         event.description = deadline["description"]
-        m, d, y = map(int, deadline["due_date"].split("/"))
-        event.begin = Arrow(y, m, d)
+        event.begin = event.begin = date_from_str(deadline["due_date"])
         event.make_all_day()
         calendar.events.add(event)
     return str(calendar)
@@ -103,7 +110,7 @@ def contact():
         subject = form_results["subject"]
         message = form_results["message"]
         # write to spreadsheet
-        contact = SPREADSHEETS.get_worksheet(2)
+        contact = SPREADSHEETS.worksheet("Contact Form Entries")
         contact.append_row([email, subject, message])
         return jsonify(success=True)
     else:
