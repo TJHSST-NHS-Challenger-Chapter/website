@@ -81,7 +81,7 @@
                 <li class="deadline mdc-card" id="{{ deadline['id'] }}">
                     <div class="deadline__top">
                         <h6 class="deadline__header">{{ deadline["title"] }} due {{ deadline["due_date"] }}</h6>
-                        <p class="deadline__body typography--body-2" typography--body-2>{{ deadline["description"]|safe }}</p>
+                        <div class="deadline__body typography--body-2">{{ deadline["description"]|safe }}</div>
                     </div>
                     <div class="deadline__bottom">
                         <button class="deadline__button mdc-button">
@@ -101,11 +101,7 @@
                 <li class="announcement mdc-card mdc-card--outlined">
                     <h6 class="announcement__header">{{ announcement["title"] }}</h6>
                     <span class="announcement__date typography--body-2">{{ announcement["date"] }}</span>
-                    <div class="announcement__body typography--body-2">
-                        {% for paragraph in announcement["description"].split("\n") %}
-                        <p class="announcement__paragraph typography--body-2">{{ paragraph|safe }}</p>
-                        {% endfor %}
-                    </div>
+                    <div class="announcement__body typography--body-2">{{ announcement["description"]|safe }} </div>
                     {% if announcement.link %}
                     <a
                        href="{{ announcement.link }}"

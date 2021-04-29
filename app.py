@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 from ics import Calendar, Event
 from arrow import Arrow
-
+# markdown rendering
+from markdown import markdown
+from mdx_gfm import GithubFlavoredMarkdownExtension
 import gspread
 import re
 from oauth2client.service_account import ServiceAccountCredentials
@@ -29,43 +31,22 @@ def date_from_str(input: str):
 
 @app.route("/")
 def index():
-    # TODO: make the fetching faster.  Currently spends 2-3 seconds before page load
-    deadlines, announcements = (s.get_all_records()
-                                for s in SPREADSHEETS.worksheets()[:2])
-    # from https://daringfireball.net/2010/07/improved_regex_for_matching_urls
-    url_regex = re.compile(
-        r"""(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))""")
-    # from https://stackoverflow.com/questions/42407785/regex-extract-email-from-strings
-    email_regex = re.compile(
-        r"([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)")
-    # modify announcements
-    announcements = [{
-        **a,
-        # show "3 days ago" instead of a date, for example
-        "date": date_from_str(a["date"]).humanize(),
-        # activate links and then make emails clickable
-        "description":
-        email_regex.sub(
-            "<a href='mailto:\g<0>' target='_blank' rel='noopener noreferrer' class='typography--link'>\g<0></a>",
-            url_regex.sub(
-                "<a href='\g<0>' target='_blank' rel='noopener noreferrer' class='typography--link'>\g<0></a>",
-                a["description"]))}
-        for a in announcements]
-    # modify deadlines
-    deadlines = [{
-        **d,
-        # activate links and then make emails clickable
-        "description":
-        email_regex.sub(
-            "<a href='mailto:\g<0>' target='_blank' rel='noopener noreferrer' class='typography--link'>\g<0></a>",
-            url_regex.sub(
-                "<a href='\g<0>' target='_blank' rel='noopener noreferrer' class='typography--link'>\g<0></a>",
-                d["description"]))}
-        for d in deadlines]
-
-    return render_template("home.html",
-                           deadlines=deadlines,
-                           announcements=announcements)
+    deadlines = SPREADSHEETS.worksheet("Deadlines").get_all_records()
+    announcements = SPREADSHEETS.worksheet("Announcements").get_all_records()
+    return render_template(
+        "home.html",
+        deadlines=[{
+            **d,
+            # render Markdown in description
+            "description": markdown(d["description"], extensions=[GithubFlavoredMarkdownExtension()])}
+            for d in deadlines],
+        announcements=[{
+            **a,
+            # show "3 days ago" instead of a date, for example
+            "date": date_from_str(a["date"]).humanize(),
+            # render Markdown in description
+            "description": markdown(a["description"], extensions=[GithubFlavoredMarkdownExtension()])}
+            for a in announcements])
 
 
 @app.route("/api/v1/deadline/<id>")

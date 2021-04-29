@@ -1,6 +1,16 @@
 import { add_ripple } from "../button"
 import "../navigation"
 
+// add classes, since Markdown doesn't
+document.querySelectorAll(".announcement__body > *, .deadline__body > *").forEach(child => {
+    child.classList.add(...child.parentElement.classList)
+    child.querySelectorAll("a").forEach(link => {
+        link.classList.add("typography--link")
+        link.target = "_blank"
+        link.rel = "noopener noreferrer"
+    })
+})
+
 const calendar_buttons = Array.from(document.querySelectorAll(".deadline__button")).map(add_ripple)
 calendar_buttons.map(b =>
     b.root.addEventListener("click", e => {
