@@ -3,7 +3,7 @@ const CACHE_NAME = "tjhsst-nhs-cache-v1"
 self.addEventListener("install", event => {
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => {
-            return cache.addAll([
+            const resources = [
                 "/",
                 "/about",
                 "/service",
@@ -21,7 +21,15 @@ self.addEventListener("install", event => {
                 "https://fonts.gstatic.com/s/materialicons/v85/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2",
                 "https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2",
                 "https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2"
-            ])
+            ]
+            return Promise.all(
+                resources.map(resource => {
+                    cache.match(new Request(resource)).then(response => {
+                        if (response) return response
+                        else return fetch(resource)
+                    })
+                })
+            )
         })
     )
 })
@@ -48,7 +56,7 @@ self.addEventListener("fetch", event => {
     }
 
     // build is on network response
-    else if (event.request.url.indexOf("/build/") > 0) {
+    else if (/build\/|assets\/|js\/|styles\//.test(event.request.url)) {
         event.respondWith(
             caches.open(CACHE_NAME).then(cache => {
                 return cache.match(event.request).then(response => {
