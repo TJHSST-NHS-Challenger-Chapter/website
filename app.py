@@ -32,22 +32,27 @@ def date_from_str(input: str):
 
 @app.route("/")
 def index():
-    deadlines = SPREADSHEETS.worksheet("Deadlines").get_all_records()
-    announcements = SPREADSHEETS.worksheet("Announcements").get_all_records()
-    return render_template(
-        "home.html",
-        deadlines=[{
-            **d,
-            # render Markdown in description
-            "description": markdown(d["description"], extensions=[GithubFlavoredMarkdownExtension()])}
-            for d in deadlines],
-        announcements=[{
-            **a,
-            # show "3 days ago" instead of a date, for example
-            "date": date_from_str(a["date"]).humanize(),
-            # render Markdown in description
-            "description": markdown(a["description"], extensions=[GithubFlavoredMarkdownExtension()])}
-            for a in announcements])
+    try:
+        deadlines = SPREADSHEETS.worksheet(
+            "Deadlines").get_all_records()
+        announcements = SPREADSHEETS.worksheet(
+            "Announcements").get_all_records()
+        return render_template(
+            "home.html",
+            deadlines=[{
+                **d,
+                # render Markdown in description
+                "description": markdown(d["description"], extensions=[GithubFlavoredMarkdownExtension()])}
+                for d in deadlines],
+            announcements=[{
+                **a,
+                # show "3 days ago" instead of a date, for example
+                "date": date_from_str(a["date"]).humanize(),
+                # render Markdown in description
+                "description": markdown(a["description"], extensions=[GithubFlavoredMarkdownExtension()])}
+                for a in announcements])
+    except gspread.exceptions.APIError:
+        return render_template("home.html", deadlines=[], announcements=[])
 
 
 @app.route("/api/v1/deadline/<id>")
