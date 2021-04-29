@@ -4,6 +4,8 @@
 
 .contact main {
     .content {
+        flex-grow: 1;
+
         .content__body {
             margin-bottom: 48px;
             // keep synced with media queries from home.scss
