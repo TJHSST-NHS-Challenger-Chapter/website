@@ -1,6 +1,3 @@
-# TODO Redirect page requests to serve the actual pages.
-# TODO Create API endpoints for facebook and google classroom announcements.
-
 from flask import Flask, render_template, request, jsonify
 from ics import Calendar, Event
 from arrow import Arrow
