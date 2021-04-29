@@ -40,6 +40,7 @@ form.addEventListener("submit", e => {
         .then(json => {
             if (json.success) {
                 // display thanks message :)
+                // TODO: replace alert with snackbar notification
                 alert("Contact submitted!  Thanks for your input :)")
                 // clear form since it wasn't actually submitted
                 reset_button.root.click()
