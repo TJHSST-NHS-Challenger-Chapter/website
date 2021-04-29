@@ -81,7 +81,7 @@
                 <li class="deadline mdc-card" id="{{ deadline['id'] }}">
                     <div class="deadline__top">
                         <h6 class="deadline__header">{{ deadline["title"] }} due {{ deadline["due_date"] }}</h6>
-                        <p class="deadline__body typography--body-2" typography--body-2>{{ deadline["description"] }}</p>
+                        <p class="deadline__body typography--body-2" typography--body-2>{{ deadline["description"]|safe }}</p>
                     </div>
                     <div class="deadline__bottom">
                         <button class="deadline__button mdc-button">

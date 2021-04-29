@@ -38,6 +38,7 @@ def index():
     # from https://stackoverflow.com/questions/42407785/regex-extract-email-from-strings
     email_regex = re.compile(
         r"([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)")
+    # modify announcements
     announcements = [{
         **a,
         # show "3 days ago" instead of a date, for example
@@ -50,6 +51,17 @@ def index():
                 "<a href='\g<0>' target='_blank' rel='noopener noreferrer' class='typography--link'>\g<0></a>",
                 a["description"]))}
         for a in announcements]
+    # modify deadlines
+    deadlines = [{
+        **d,
+        # activate links and then make emails clickable
+        "description":
+        email_regex.sub(
+            "<a href='mailto:\g<0>' target='_blank' rel='noopener noreferrer' class='typography--link'>\g<0></a>",
+            url_regex.sub(
+                "<a href='\g<0>' target='_blank' rel='noopener noreferrer' class='typography--link'>\g<0></a>",
+                d["description"]))}
+        for d in deadlines]
 
     return render_template("home.html",
                            deadlines=deadlines,
