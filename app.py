@@ -1,11 +1,13 @@
+# flask
 from flask import Flask, render_template, request, jsonify
+# iCal creation
 from ics import Calendar, Event
 from arrow import Arrow
 # markdown rendering
 from markdown import markdown
 from mdx_gfm import GithubFlavoredMarkdownExtension
+# google sheets integration
 import gspread
-import re
 from oauth2client.service_account import ServiceAccountCredentials
 
 credential = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", [
