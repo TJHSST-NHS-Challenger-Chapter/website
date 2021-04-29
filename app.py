@@ -1,5 +1,5 @@
 # flask
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_file, send_from_directory
 # iCal creation
 from ics import Calendar, Event
 from arrow import Arrow
@@ -20,8 +20,7 @@ SPREADSHEETS = client.open("Website database")
 
 app = Flask(
     __name__,
-    template_folder="./frontend/src/templates",
-    static_folder="frontend/build"
+    template_folder="./frontend/src/templates"
 )
 
 
@@ -110,6 +109,26 @@ def contact():
         return jsonify(success=True)
     else:
         return render_template("contact.html")
+
+
+@app.route("/assets/<path:path>")
+def assets(path):
+    return send_from_directory("frontend/build/assets", path)
+
+
+@app.route("/js/<path:path>")
+def js(path):
+    return send_from_directory("frontend/build/js", path)
+
+
+@app.route("/styles/<path:path>")
+def styles(path):
+    return send_from_directory("frontend/build/styles", path)
+
+
+@app.route("/<path:path>")
+def public(path):
+    return send_from_directory("frontend/build/public", path)
 
 
 if __name__ == "__main__":

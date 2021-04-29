@@ -1,5 +1,6 @@
 import { add_ripple } from "../button"
 import "../navigation"
+import "../register"
 
 const question_toggles = Array.from(document.querySelectorAll(".question")).map(add_ripple)
 question_toggles.forEach(({ root: el }) => {

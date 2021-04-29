@@ -1,0 +1,32 @@
+{
+    "theme_color": "#e1a653",
+    "background_color": "#fff",
+    "display": "standalone",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/",
+    "name": "TJHSST NHS",
+    "short_name": "TJ NHS",
+    "description": "TJHSST NHS is part of the NHS Challenger Chapter and strives to promote community service and the four pillars of the NHS among TJHSST 11th and 12th grade members.",
+    "icons": [{
+            "src": "assets/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

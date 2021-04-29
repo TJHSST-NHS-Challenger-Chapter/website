@@ -15,13 +15,20 @@ module.exports = ({ production, development }) => ({
         service: "./src/js/pages/service.js",
         faq: "./src/js/pages/faq.js",
         contact: "./src/js/pages/contact.js",
+        sw: "./src/public/sw.js",
         styles: "./src/scss/main.scss"
     },
     watch: development,
     output: {
         path: path.join(process.cwd(), "build"),
-        // "styles" generates a useless .js file, so we mark it for deletion
-        filename: data => (data.chunk.name === "styles" ? "DELETE_ME" : "[name].js"),
+        filename: data => {
+            const name = data.chunk.name
+            // "styles" generates a useless .js file, so we mark it for deletion
+            if (name === "styles") return "DELETE_ME"
+            else if (name === "sw") return "public/[name].js"
+            else if (["home", "about", "service", "faq", "contact"].includes(name)) return "js/[name].js"
+            else return "[name].js"
+        },
         clean: true
     },
     module: {
@@ -45,7 +52,7 @@ module.exports = ({ production, development }) => ({
                     use.push(
                         {
                             loader: "file-loader",
-                            options: { name: "styles.css" }
+                            options: { name: "styles/styles.css" }
                         },
                         {
                             loader: "extract-loader"
@@ -103,7 +110,12 @@ module.exports = ({ production, development }) => ({
                 if (fs.readdirSync(build).includes("DELETE_ME")) fs.unlinkSync(path.join(build, "DELETE_ME"))
             }
         }),
-        new CopyPlugin({ patterns: [{ from: "./src/assets", to: "assets" }] })
+        new CopyPlugin({
+            patterns: [
+                { from: "./src/assets", to: "assets" },
+                { from: "./src/public", to: "public" }
+            ]
+        })
     ],
     optimization: {
         minimizer: [new TerserPlugin({ extractComments: false })]

@@ -1,5 +1,6 @@
 import { add_ripple } from "../button"
 import "../navigation"
+import "../register"
 
 // add classes, since Markdown doesn't
 document.querySelectorAll(".announcement__body > *, .deadline__body > *").forEach(child => {

@@ -2,6 +2,7 @@ import { MDCTextField } from "@material/textfield"
 
 import { add_ripple } from "../button"
 import "../navigation"
+import "../register"
 
 const form = document.querySelector(".contact-form")
 
