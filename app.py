@@ -70,7 +70,7 @@ def get_deadline_by_id(id):
             event.make_all_day()
             calendar.events.add(event)
             return Response(str(calendar), headers={
-                "Content-Disposition": "attachment; filename='events.ics'",
+                "Content-Disposition": "attachment; filename=events.ics",
                 "Content-Type": "text/calendar"
             })
 
@@ -87,7 +87,7 @@ def get_deadlines():
         event.make_all_day()
         calendar.events.add(event)
     return Response(str(calendar), headers={
-        "Content-Disposition": "attachment; filename='events.ics'",
+        "Content-Disposition": "attachment; filename=events.ics",
         "Content-Type": "text/calendar"
     })
 
