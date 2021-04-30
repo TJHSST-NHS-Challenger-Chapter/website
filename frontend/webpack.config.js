@@ -113,7 +113,7 @@ module.exports = ({ production, development }) => ({
         new CopyPlugin({
             patterns: [
                 { from: "./src/assets", to: "assets" },
-                { from: "./src/public", to: "public" }
+                { from: "./src/public", to: "public", globOptions: { ignore: ["**/sw.js"] } }
             ]
         })
     ],
