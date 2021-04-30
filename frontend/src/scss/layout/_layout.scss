@@ -11,7 +11,7 @@ html {
             flex-wrap: wrap;
             width: min(100vw, 1020px);
             overflow-x: hidden;
-            margin: -16px;
+            margin: -16px 0;
 
             & > * {
                 margin: 16px;
