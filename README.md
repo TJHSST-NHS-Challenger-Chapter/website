@@ -20,11 +20,11 @@ The About page contains information about our officers and general information a
 
 ## Service
 
-The Service page links to a guide on how members should the internal google classroom to keep track of their service hours. It also has a table of service opportunities submitted to the site.
+Ther Service page lets members submit service opportunities through a Google Form and view a list of the opportunities submitted by others. This will hopefully help members find new opportunities to volunteer.
 
 ## FAQ
 
-The FAQ page contains answers to common questions from applicants and others.
+The FAQ page contains answers to common questions from applicants and others about both the application process and general NHS rules and conduct.
 
 ## Contact Us
 
@@ -32,13 +32,20 @@ The Contact Us page has a form that allows anyone to send us a question or feedb
 
 # Development
 
-The website uses flask as a backend and requires webpack for frontend development. After cloning the repository, run `npm install` from the `frontend/` directory. Run `npm run watch` to rebuild the css and js on changes. In the root directory of the repository, run `python app.py` to start the backend in debug mode. The page will need to be refreshed after changes.
+The website uses flask as a backend and requires webpack for frontend development. After cloning the repository, run `npm install` from the `frontend/` directory. Run `npm run watch` (from that directory) to rebuild the css and js on changes. In the root directory of the repository, enter the virtual environment with `source ./venv/bin/activate`, install dependencies with `pip install -r requirements.txt`, and run `python app.py` to start the backend in debug mode. The page will need to be refreshed after changes.
+
+> Note: All of the pages have a [service worker](https://developers.google.com/web/fundamentals/primers/service-workers) used to cache requests so that the website will work offline as a Progressive Web App (PWA). If recent changes aren't taking effect, try any combination of the following:
+>
+> -   Comment out the imports to `import "../register"` in all of the js files in `src/js/pages`. This will disable the service worker.
+> -   Forcefully clear the browser cache. In Chrome, this is done with the key combination <kbd>Shift + Ctrl + R</kbd>.
+> -   Forcefully clear the application cache. Open the devtools inspector (<kbd>F12</kbd> in Chrome), go to `Application > Application > Storage`, and click the `Clear site data` button.
+> -   Reload the service worker. Navigate to `Application > Application > Service Workers` in devtools, click `Unregister`, and reload the page.
 
 ## Commands
 
 ### `python app.py`
 
-Launches the flask server for development. Required in order to view changes. Additionally, the google sheets API will error if you don't have a file `credentials.json` in the same directory as `app.py`. If you need this file, download it from the "NHS Website" google drive folder, and if you have it, DO NOT COMMIT IT!
+Launches the flask server for development. Required in order to view changes. Run `gunicorn -w 4 -b 192.168.1.158:4000 app:app` if you're looking for a more production-like server. Additionally, the google sheets API will error if you don't have a file `credentials.json` in the same directory as `app.py`. If you need this file, download it from the "NHS Website" google drive folder, and if you have it, DO NOT COMMIT IT!
 
 ### `npm run watch` (in `frontend/`)
 
@@ -63,59 +70,113 @@ The `templates/` folder holds templates for the flask app.
 > **Note:** referencing static files needs to be done specially; see `home.html` for an example.
 
 ```
+.
+├── .gitignore
 ├── LICENSE
-├── README.md
+├── README.md (this file)
 ├── __pycache__ [...]
 ├── app.py
+├── credentials.json
 ├── frontend
-│   ├── node_modules [...]
-│   ├── build
-│   │   ├── about.js
-│   │   ├── contact.js
-│   │   ├── faq.js
-│   │   ├── home.js
-│   │   ├── service.js
-│   │   └── styles.css
-│   ├── src
-│   │   ├── js
-│   │   │   ├── [...]
-│   │   │   └── pages
-│   │   │       ├── about.js
-│   │   │       ├── contact.js
-│   │   │       ├── faq.js
-│   │   │       ├── home.js
-│   │   │       └── service.js
-│   │   ├── scss
-│   │   │   ├── abstracts
-│   │   │   │   └── _variables.scss
-│   │   │   ├── base
-│   │   │   │   ├── _reset.scss
-│   │   │   │   └── _typography.scss
-│   │   │   ├── components
-│   │   │   │   ├── _button.scss
-│   │   │   │   └── _notification.scss
-│   │   │   ├── layout
-│   │   │   │   ├── _footer.scss
-│   │   │   │   ├── _header.scss
-│   │   │   │   └── _navigation.scss
-│   │   │   ├── pages
-│   │   │   │   ├── _about.scss
-│   │   │   │   ├── _contact.scss
-│   │   │   │   ├── _faq.scss
-│   │   │   │   ├── _home.scss
-│   │   │   │   └── _service.scss
-│   │   │   ├── vendors
-│   │   │   │   └── _material.scss
-│   │   │   └── main.scss
-│   │   └── templates
-│   │       ├── about.html
-│   │       ├── contact.html
-│   │       ├── faq.html
-│   │       ├── home.html
-│   │       └── service.html
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── webpack.config.js
+│   ├── .prettierignore
+│   ├── .prettierrc
+│   ├── build
+│   │   ├── assets
+│   │   │   ├── AJ Seo.jpg
+│   │   │   ├── Alice Ji.jpg
+│   │   │   ├── Emma Cheng.jpg
+│   │   │   ├── Forrest Meng.jpg
+│   │   │   ├── Jason Klein.jpg
+│   │   │   ├── Jason Wang.jpg
+│   │   │   ├── Liam Reaser.jpg
+│   │   │   ├── Michelle Ru.jpg
+│   │   │   ├── Minjoo Song.jpg
+│   │   │   ├── Sadhika Dhanasekar.jpg
+│   │   │   ├── icon-192x192.png
+│   │   │   ├── icon-256x256.png
+│   │   │   ├── icon-384x384.png
+│   │   │   ├── icon-512x512.png
+│   │   │   ├── icon-square-192x192.png
+│   │   │   └── maskable_icon.png
+│   │   ├── js
+│   │   │   ├── about.js
+│   │   │   ├── contact.js
+│   │   │   ├── faq.js
+│   │   │   ├── home.js
+│   │   │   └── service.js
+│   │   ├── public
+│   │   │   ├── favicon.ico
+│   │   │   ├── manifest.json
+│   │   │   └── sw.js
+│   │   └── styles
+│   │       └── styles.css
+│   ├── node_modules [...]
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── src
+│   │   ├── assets
+│   │   │   ├── AJ Seo.jpg
+│   │   │   ├── Alice Ji.jpg
+│   │   │   ├── Emma Cheng.jpg
+│   │   │   ├── Forrest Meng.jpg
+│   │   │   ├── Jason Klein.jpg
+│   │   │   ├── Jason Wang.jpg
+│   │   │   ├── Liam Reaser.jpg
+│   │   │   ├── Michelle Ru.jpg
+│   │   │   ├── Minjoo Song.jpg
+│   │   │   ├── Sadhika Dhanasekar.jpg
+│   │   │   ├── icon-192x192.png
+│   │   │   ├── icon-256x256.png
+│   │   │   ├── icon-384x384.png
+│   │   │   ├── icon-512x512.png
+│   │   │   ├── icon-square-192x192.png
+│   │   │   └── maskable_icon.png
+│   │   ├── js
+│   │   │   ├── button.js
+│   │   │   ├── navigation.js
+│   │   │   ├── pages
+│   │   │   │   ├── about.js
+│   │   │   │   ├── contact.js
+│   │   │   │   ├── faq.js
+│   │   │   │   ├── home.js
+│   │   │   │   └── service.js
+│   │   │   └── register.js
+│   │   ├── public
+│   │  
+│   │   │   ├── favicon.ico
+│   │   │   ├── manifest.json
+│   │   │   └── sw.js
+│   │   ├── scss
+│   │   │   ├── abstracts
+│   │   │   │   └── _variables.scss
+│   │   │   ├── base
+│   │   │   │   ├── _reset.scss
+│   │   │   │   └── _typography.scss
+│   │   │   ├── components
+│   │   │   │   ├── _button.scss
+│   │   │   │   └── _notification.scss
+│   │   │   ├── layout
+│   │   │   │   ├── _footer.scss
+│   │   │   │   ├── _header.scss
+│   │   │   │   ├── _layout.scss
+│   │   │   │   └── _navigation.scss
+│   │   │   ├── main.scss
+│   │   │   ├── pages
+│   │   │   │   ├── _about.scss
+│   │   │   │   ├── _contact.scss
+│   │   │   │   ├── _faq.scss
+│   │   │   │   ├── _home.scss
+│   │   │   │   └── _service.scss
+│   │   │   └── vendors
+│   │   │       └── _material.scss
+│   │   └── templates
+│   │       ├── about.html
+│   │       ├── contact.html
+│   │       ├── faq.html
+│   │       ├── home.html
+│   │       └── service.html
+│   └── webpack.config.js
 ├── requirements.txt
 └── venv [...]
+
 ```
