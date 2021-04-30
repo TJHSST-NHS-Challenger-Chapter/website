@@ -18,6 +18,7 @@ self.addEventListener("install", event => {
                 "assets/icon-256x256.png",
                 "assets/icon-384x384.png",
                 "assets/icon-512x512.png",
+                "manifest.json",
                 // external
                 "https://fonts.googleapis.com/css?family=Roboto:300,400,500",
                 "https://fonts.googleapis.com/icon?family=Material+Icons",
