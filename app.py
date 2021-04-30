@@ -1,5 +1,6 @@
 # flask
 from flask import Flask, render_template, request, jsonify, send_file, send_from_directory
+from flask.wrappers import Response
 # iCal creation
 from ics import Calendar, Event
 from arrow import Arrow
@@ -68,7 +69,10 @@ def get_deadline_by_id(id):
             event.begin = date_from_str(deadline["due_date"])
             event.make_all_day()
             calendar.events.add(event)
-            return str(calendar)
+            return Response(str(calendar), headers={
+                "Content-Disposition": "attachment; filename='events.ics'",
+                "Content-Type": "text/calendar"
+            })
 
 
 @app.route("/api/v1/deadlines")
@@ -82,7 +86,10 @@ def get_deadlines():
         event.begin = event.begin = date_from_str(deadline["due_date"])
         event.make_all_day()
         calendar.events.add(event)
-    return str(calendar)
+    return Response(str(calendar), headers={
+        "Content-Disposition": "attachment; filename='events.ics'",
+        "Content-Type": "text/calendar"
+    })
 
 
 @app.route("/about")
