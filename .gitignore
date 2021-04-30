@@ -8,3 +8,7 @@ __pycache__
 
 # google sheets access
 credentials.json
+
+# server output
+error.txt
+output.txt
