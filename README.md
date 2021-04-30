@@ -59,6 +59,14 @@ Builds all of the frontend code to production quality. Avoids developer tools li
 
 Runs [Prettier](https://prettier.io/) to maintain code style across documents. Please run this before you commit if you made changes to `*.scss` or `*.js` files!
 
+## Deployment
+
+The site is hosted on Director ([here](https://director.tjhsst.edu/sites/244/), though you'll need access), which means that there isn't any automation in the deployment process. All of the following steps should be done manually to update the site:
+
+1. Open a console in Director and, from the `public/` directory, run `git pull`
+1. Navigate to the `public/frontend/` directory and run `npm run build` (typically takes 80-90 seconds)
+1. Click "nhs" near the top left and press the `Restart process` button. The process status will shift to saying "Shutting down" to "Starting". Once it starts with "Running since", the newest changes should be in effect.
+
 ## Outline
 
 Below is an outline of the directory structure of the project.

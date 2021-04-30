@@ -110,7 +110,7 @@ module.exports = ({ production, development }) => ({
             done: () => {
                 const build = path.join(__dirname, "build")
                 if (fs.readdirSync(build).includes("DELETE_ME")) fs.unlinkSync(path.join(build, "DELETE_ME"))
-           
+
                 if (production) {
                     let manifest = fs.readFileSync(path.join(__dirname, "build/public/manifest.json")).toString()
                     manifest = manifest
