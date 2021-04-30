@@ -6,26 +6,28 @@ const CACHE_NAME = "tjhsst-nhs-cache-v1"
 self.addEventListener("install", event => {
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => {
-            return cache.addAll([
-                "/",
-                "/about",
-                "/service",
-                "/faq",
-                "/contact",
-                "/styles/styles.css",
-                // icons
-                "assets/icon-192x192.png",
-                "assets/icon-256x256.png",
-                "assets/icon-384x384.png",
-                "assets/icon-512x512.png",
-                "manifest.json",
-                // external
-                "https://fonts.googleapis.com/css?family=Roboto:300,400,500",
-                "https://fonts.googleapis.com/icon?family=Material+Icons",
-                "https://fonts.gstatic.com/s/materialicons/v85/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2",
-                "https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2",
-                "https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2"
-            ].map(path => path.startsWith("http") ? path : "/nhs/" + path))
+            return cache.addAll(
+                [
+                    "/",
+                    "/about",
+                    "/service",
+                    "/faq",
+                    "/contact",
+                    "/styles/styles.css",
+                    // icons
+                    "assets/icon-192x192.png",
+                    "assets/icon-256x256.png",
+                    "assets/icon-384x384.png",
+                    "assets/icon-512x512.png",
+                    "manifest.json",
+                    // external
+                    "https://fonts.googleapis.com/css?family=Roboto:300,400,500",
+                    "https://fonts.googleapis.com/icon?family=Material+Icons",
+                    "https://fonts.gstatic.com/s/materialicons/v85/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2",
+                    "https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2",
+                    "https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2"
+                ].map(path => (path.startsWith("http") ? path : "/nhs/" + path))
+            )
         })
     )
 })
