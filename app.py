@@ -1,5 +1,5 @@
 # flask
-from flask import Flask, render_template, request, jsonify, send_file, send_from_directory
+from flask import Flask, render_template, request, jsonify, send_file, send_from_directory, url_for
 from flask.wrappers import Response
 # iCal creation
 from ics import Calendar, Event
@@ -24,6 +24,9 @@ app = Flask(
     template_folder="./frontend/src/templates"
 )
 
+def my_url_for(endpoint, **values):
+    return "/nhs" + url_for(endpoint, **values)
+app.jinja_env.globals.update(url_for=my_url_for)
 
 def date_from_str(input: str):
     """ Calculates an arrow date given a string `input` in m/d/y notation. """
@@ -141,7 +144,15 @@ def styles(path):
 @app.route("/<path:path>")
 def public(path):
     return send_from_directory("frontend/build/public", path)
+    
 
+# if __name__ == "__main__":
+#     app.run(host="0.0.0.0", debug=True)
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+from werkzeug.exceptions import NotFound
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
+
+def no_app(environ, start_response):
+    return NotFound()(environ, start_response)
+
+app.wsgi_app = DispatcherMiddleware(no_app, {'': app.wsgi_app})

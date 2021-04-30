@@ -9,6 +9,7 @@
     <meta name="keywords" content="NHS, National Honor Society, TJ, TJHSST, Thomas Jefferson High School, Thomas Jefferson High School for Science and Technology, service, service hours, community service, volunteer, volunteers">
     <meta name="web_author" content="Jason Klein">
     <meta name="theme-color" content="#1a1744">
+    <meta data-name="service-worker-path" content="{{ url_for('public', path='sw.js') }}">
     <link rel="apple-touch-icon" href="{{ url_for('assets', path='icon-square-192x192.png') }}">
     <link rel="manifest" href="{{ url_for('public', path='manifest.json') }}">
     <link rel="stylesheet" href="{{ url_for('styles', path='styles.css') }}" />
@@ -38,27 +39,27 @@
         </div>
         <div class="mdc-drawer__content">
             <nav class="mdc-list">
-                <a class="mdc-list-item" href="/">
+                <a class="mdc-list-item" href="{{ url_for('index') }}">
                     <span class="mdc-list-item__ripple"></span>
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
                     <span class="mdc-list-item__text">Home</span>
                 </a>
-                <a class="mdc-list-item mdc-list-item--activated" href="/about" aria-current="page">
+                <a class="mdc-list-item mdc-list-item--activated" href="{{ url_for('about') }}" aria-current="page">
                     <span class="mdc-list-item__ripple"></span>
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
                     <span class="mdc-list-item__text">About</span>
                 </a>
-                <a class="mdc-list-item" href="/service">
+                <a class="mdc-list-item" href="{{ url_for('service') }}">
                     <span class="mdc-list-item__ripple"></span>
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">groups</i>
                     <span class="mdc-list-item__text">Service</span>
                 </a>
-                <a class="mdc-list-item" href="/faq">
+                <a class="mdc-list-item" href="{{ url_for('faq') }}">
                     <span class="mdc-list-item__ripple"></span>
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">forum</i>
                     <span class="mdc-list-item__text">FAQ</span>
                 </a>
-                <a class="mdc-list-item" href="/contact">
+                <a class="mdc-list-item" href="{{ url_for('contact') }}">
                     <span class="mdc-list-item__ripple"></span>
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">mail_outline</i>
                     <span class="mdc-list-item__text">Contact Us!</span>
