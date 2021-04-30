@@ -26,12 +26,11 @@ app = Flask(
     template_folder="./frontend/src/templates"
 )
 
+if app.config["ENV"] == "production":
+    def my_url_for(endpoint, **values):
+        return "/nhs" + url_for(endpoint, **values)
 
-def my_url_for(endpoint, **values):
-    return "/nhs" + url_for(endpoint, **values)
-
-
-app.jinja_env.globals.update(url_for=my_url_for)
+    app.jinja_env.globals.update(url_for=my_url_for)
 
 
 def date_from_str(input: str):

@@ -1,4 +1,6 @@
 const path = require("path")
+const webpack = require("webpack")
+const DefinePlugin = webpack.DefinePlugin
 const EventHooksPlugin = require("event-hooks-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
 const CopyPlugin = require("copy-webpack-plugin")
@@ -115,6 +117,9 @@ module.exports = ({ production, development }) => ({
                 { from: "./src/assets", to: "assets" },
                 { from: "./src/public", to: "public", globOptions: { ignore: ["**/sw.js"] } }
             ]
+        }),
+        new DefinePlugin({
+            PRODUCTION: JSON.stringify(production)
         })
     ],
     optimization: {

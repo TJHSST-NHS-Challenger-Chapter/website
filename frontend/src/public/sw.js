@@ -1,5 +1,4 @@
 // TODO: Set cache to expire after some time
-// TODO: Find a way to dynamically figure out whether or not the cache paths need to be modified.  This should be when in production, but I don't know how to access that here.
 
 const CACHE_NAME = "tjhsst-nhs-cache-v1"
 
@@ -26,7 +25,7 @@ self.addEventListener("install", event => {
                     "https://fonts.gstatic.com/s/materialicons/v85/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2",
                     "https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2",
                     "https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2"
-                ].map(path => (path.startsWith("http") ? path : "/nhs/" + path))
+                ].map(path => (PRODUCTION ? (path.startsWith("http") ? path : "/nhs/" + path) : path))
             )
         })
     )
