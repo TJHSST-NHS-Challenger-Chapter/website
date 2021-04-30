@@ -20,7 +20,7 @@ calendar_buttons.map(b =>
     b.root.addEventListener("click", e => {
         const deadline = e.target.parentElement.parentElement.parentElement
         try {
-            open(`${window.location.origin}/api/v1/deadline/${deadline.id}`)
+            open(`${window.location.origin}/nhs/api/v1/deadline/${deadline.id}`)
             // snackbar alert
             snackbar.labelText = "Event downloaded Successfully!"
             snackbar.open()
@@ -34,7 +34,7 @@ calendar_buttons.map(b =>
 const calendar_all_button = add_ripple(document.querySelector(".deadlines__button"))
 calendar_all_button.root.addEventListener("click", () => {
     try {
-        open(`${window.location.origin}/api/v1/deadlines`)
+        open(`${window.location.origin}/nhs/api/v1/deadlines`)
         // snackbar alert
         snackbar.labelText = "Events downloaded Successfully!"
         snackbar.open()
