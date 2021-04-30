@@ -150,7 +150,6 @@ The `templates/` folder holds templates for the flask app.
 │   │   │   │   └── service.js
 │   │   │   └── register.js
 │   │   ├── public
-│   │  
 │   │   │   ├── favicon.ico
 │   │   │   ├── manifest.json
 │   │   │   └── sw.js
