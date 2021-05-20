@@ -95,6 +95,12 @@
             flex-direction: column;
             margin-top: 16px;
 
+            // override the reset so that bullets appear in announcements
+            .announcement li {
+                margin-left: 1rem;
+                list-style-type: initial;
+            }
+
             .announcement:not(:last-child) {
                 margin-bottom: 16px;
             }
