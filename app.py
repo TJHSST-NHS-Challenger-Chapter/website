@@ -36,7 +36,7 @@ if app.config["ENV"] == "production":
 def date_from_str(input: str):
     """ Calculates an arrow date given a string `input` in m/d/y notation. """
     m, d, y = map(int, input.split("/"))
-    return Arrow(y, m, d)
+    return Arrow(y, m, d, tzinfo="America/New_York")
 
 
 @app.route("/")
