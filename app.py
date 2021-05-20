@@ -53,13 +53,13 @@ def index():
                 # render Markdown in description
                 "description": markdown(d["description"], extensions=[GithubFlavoredMarkdownExtension()])}
                 for d in deadlines],
-            announcements=[{
+            announcements=reversed([{
                 **a,
                 # show "3 days ago" instead of a date, for example
                 "date": date_from_str(a["date"]).humanize(),
                 # render Markdown in description
                 "description": markdown(a["description"], extensions=[GithubFlavoredMarkdownExtension()])}
-                for a in announcements])
+                for a in announcements]))
     except gspread.exceptions.APIError:
         return render_template("home.html", deadlines=[], announcements=[])
 
