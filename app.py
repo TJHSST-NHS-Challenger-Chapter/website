@@ -55,8 +55,10 @@ def index():
                 for d in deadlines],
             announcements=reversed([{
                 **a,
-                # show "3 days ago" instead of a date, for example
-                "date": date_from_str(a["date"]).humanize(),
+                # show "3 days ago" or "today" instead of a date, for example
+                "date":
+                    "today" if now(tz="America/New_York").date() == date_from_str(a["date"]).date()
+                    else date_from_str(a["date"]).humanize(),
                 # render Markdown in description
                 "description": markdown(a["description"], extensions=[GithubFlavoredMarkdownExtension()])}
                 for a in announcements]))
