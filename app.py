@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, jsonify, send_from_directory,
 from flask.wrappers import Response
 # iCal creation
 from ics import Calendar, Event
-from arrow import Arrow
+from arrow import Arrow, now
 # markdown rendering
 from markdown import markdown
 from mdx_gfm import GithubFlavoredMarkdownExtension
