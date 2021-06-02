@@ -52,7 +52,7 @@ def index():
                 **d,
                 # render Markdown in description
                 "description": markdown(d["description"], extensions=[GithubFlavoredMarkdownExtension()])}
-                for d in deadlines],
+                for d in deadlines if now(tz="America/New_York").date() <= date_from_str(d["due_date"]).date()],
             announcements=reversed([{
                 **a,
                 # show "3 days ago" or "today" instead of a date, for example
