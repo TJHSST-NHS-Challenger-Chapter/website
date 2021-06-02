@@ -1,5 +1,3 @@
-// TODO: Set cache to expire after some time
-
 const CACHE_NAME = "tjhsst-nhs-cache-v1"
 
 self.addEventListener("install", event => {
@@ -43,6 +41,7 @@ self.addEventListener("install", event => {
 
 self.addEventListener("fetch", event => {
     // home page is network first
+    // meaning always try network first, and if that fails then try the cache
     if (event.request.url.endsWith("/")) {
         event.respondWith(
             fetch(event.request)
@@ -62,25 +61,49 @@ self.addEventListener("fetch", event => {
         )
     }
 
-    // build is on network response
-    else if (/build\/|assets\/|js\/|styles\//.test(event.request.url)) {
+    // anything else will be served from the cache (if it is in the cache)
+    // if it is not expired or if it is expired but could not connect to the
+    // internet.
+    else {
         event.respondWith(
-            caches.open(CACHE_NAME).then(cache => {
-                return cache.match(event.request).then(response => {
-                    return (
-                        response ??
-                        fetch(event.request).then(response => {
-                            cache.put(event.request, response.clone())
-                            return response
-                        })
-                    )
+            caches.open(CACHE_NAME).then(cache =>
+                cache.match(event.request).then(response => {
+                    if (response === undefined) {
+                        // not found in cache
+                        return fetch(event.request)
+                    } else if (expired(response)) {
+                        return fetch(event.request)
+                            .then(fetch_response => {
+                                if (!fetch_response.ok) return fetch_response
+
+                                const clone = fetch_response.clone()
+                                const headers = new Headers(clone.headers)
+                                headers.append("sw-fetched-on", new Date().getTime())
+                                return clone.blob().then(body =>
+                                    cache.put(
+                                        event.request,
+                                        new Response(body, {
+                                            status: clone.status,
+                                            statusText: clone.statusText,
+                                            headers: headers
+                                        })
+                                    )
+                                )
+                            })
+                            .catch(() => response)
+                    } else {
+                        return response
+                    }
                 })
-            })
+            )
         )
     }
-
-    // everything else is cache first
-    else {
-        event.respondWith(caches.match(event.request).then(response => response ?? fetch(event.request)))
-    }
 })
+
+function expired(response) {
+    if (response) {
+        const time = response.headers.get("sw-fetched-on")
+        // cache expires after 2 hours.  1000 * 60 * 60 * 2 is 2 hr in ms
+        return time && parseFloat(time) + 1000 * 60 * 60 * 2 < new Date().getTime()
+    } else return true
+}
