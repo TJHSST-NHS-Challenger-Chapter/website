@@ -74,7 +74,7 @@ self.addEventListener("fetch", event => {
                     } else if (expired(response)) {
                         return fetch(event.request)
                             .then(fetch_response => {
-                                if (!fetch_response.ok) return fetch_response
+                                if (!fetch_response.ok) return response
 
                                 const clone = fetch_response.clone()
                                 const headers = new Headers(clone.headers)
