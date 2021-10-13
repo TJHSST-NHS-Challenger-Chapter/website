@@ -125,9 +125,10 @@ def contact():
         email = form_results["email"]
         subject = form_results["subject"]
         message = form_results["message"]
+        current_date = now(tz="America/New_York").format()
         # write to spreadsheet
         contact = SPREADSHEETS.worksheet("Contact Form Entries")
-        contact.append_row([email, subject, message])
+        contact.append_row([current_date, email, subject, message])
         return jsonify(success=True)
     else:
         return render_template("contact.html")
