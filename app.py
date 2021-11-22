@@ -107,9 +107,20 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/induction")
+@app.route("/induction", methods=["GET", "POST"])
 def induction():
-    return render_template("induction.html")
+    if request.method == "POST":
+        form_results = request.get_json()
+        firstname = form_results["firstname"]
+        lastname = form_results["lastname"]
+        # TODO create spreasheet mapping people with regions and numbers and match their name to it
+        print(f"received ({firstname}, {lastname}) from client.")
+
+        fake_region = "billiard room"
+        fake_number = 13
+        return jsonify(success=True, region=fake_region, number=fake_number)
+    else:
+        return render_template("induction.html")
 
 @app.route("/service")
 def service():
