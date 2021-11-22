@@ -1,0 +1,26 @@
+@use "@material/button";
+
+.induction main {
+    .content {
+        .content__info {
+            margin-bottom: 16px;
+        }
+
+        .content__seat {
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+
+        .induction-form {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -8px;
+
+            > * {
+                flex-grow: 1;
+                flex-basis: 300px;
+                margin: 8px;
+            }
+          }
+    }
+}
