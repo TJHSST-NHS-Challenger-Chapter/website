@@ -83,6 +83,35 @@
 
     <main class="mdc-top-app-bar--fixed-adjust">
         <section class="content">
+            <p class="content__info">The TJHSST National Honor Society Challenger Chapter will be having its new member induction on <span class="typography--link">December 3 at 6:30 PM in the TJHSST Cafeteria</span>. To better enable contact tracing, we have created a seating chart and assigned seats. Use the link below to view a .pdf of the seating chart.</p><p class="content__info">Please note that the front of the room in the seating chart is the long, windowed wall in the cafeteria that you face as you enter through the doors. We positioned the event in this manner so more people could be closer to the speakers.</p>
+            <a class="info__button mdc-button mdc-button--outlined" href="#" target="_blank" rel="noopener noreferrer">
+                <div class="mdc-button__ripple"></div>
+                <i class="material-icons mdc-button__icon" aria-hidden="true">event_seat</i>
+                <span class="mdc-button__label">View the Seating Chart</span>
+            </a>
+            <p class="content__seat">Use this form to find your seat number:</p>
+            <form action="{{ url_for('induction') }}" method="POST" enctype="multipart/form-data" class="induction-form">
+                <label class="induction-form__firstname mdc-text-field mdc-text-field--outlined">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="firstname-label">First Name</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="text" name="firstname" class="mdc-text-field__input" aria-labelledby="firstname-label" required>
+                </label>
+                <label class="induction-form__lastname mdc-text-field mdc-text-field--outlined">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="lastname-label">Last Name</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="text" name="lastname" class="mdc-text-field__input" aria-labelledby="lastname-label" required>
+                </label>
+            </form>
             <!-- <p class="content__body">If you would like to speak with officers of TJHSST’s NHS Challenger Chapter, feel free to fill out the form below.</p>
             <form action="{{ url_for('contact') }}" method="POST" enctype="multipart/form-data" class="contact-form">
                 <label class="contact-form__email mdc-text-field mdc-text-field--outlined">
