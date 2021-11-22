@@ -109,7 +109,7 @@ def about():
 
 @app.route("/induction")
 def induction():
-    return "test"
+    return render_template("induction.html")
 
 @app.route("/service")
 def service():
