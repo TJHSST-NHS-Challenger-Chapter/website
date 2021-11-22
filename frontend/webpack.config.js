@@ -15,6 +15,7 @@ module.exports = ({ production, development }) => ({
         home: "./src/js/pages/home.js",
         about: "./src/js/pages/about.js",
         service: "./src/js/pages/service.js",
+        induction: "./src/js/pages/induction.js",
         faq: "./src/js/pages/faq.js",
         contact: "./src/js/pages/contact.js",
         sw: "./src/public/sw.js",
@@ -28,7 +29,7 @@ module.exports = ({ production, development }) => ({
             // "styles" generates a useless .js file, so we mark it for deletion
             if (name === "styles") return "DELETE_ME"
             else if (name === "sw") return "public/[name].js"
-            else if (["home", "about", "service", "faq", "contact"].includes(name)) return "js/[name].js"
+            else if (["home", "about", "service", "induction", "faq", "contact"].includes(name)) return "js/[name].js"
             else return "[name].js"
         },
         clean: true
