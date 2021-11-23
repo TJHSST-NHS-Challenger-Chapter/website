@@ -36,9 +36,9 @@ form.addEventListener("submit", e => {
                 const {firstname, lastname} = form_data
                 const {region, number} = json
                 if (region && number)
-                    dialog.root.querySelector(".seating-dialog__content").innerHTML = `Welcome, <b style="font-weight:bold">${firstname} ${lastname}</b>. Your seat is <b style="font-weight:bold">#${number}</b> at <b style="font-weight:bold">${region}</b>. See the seating chart .pdf file if this doesn't make sense.`
+                    dialog.root.querySelector(".seating-dialog__content").innerHTML = `Welcome, <b style="font-weight:bold">${firstname} ${lastname}</b>. Your seat is <b style="font-weight:bold">#${number}</b> at <b style="font-weight:bold">${region}</b>. See the seating chart .pdf file for that seat's location in the room.`
                 else
-                    dialog.root.querySelector(".seating-dialog__content").innerHTML = `I'm sorry, but the name <b style="font-weight:bold">${firstname} ${lastname}</b> doesn't seem to be part of our seating chart database. Please contact one of the NHS officers if you think it should be.`
+                    dialog.root.querySelector(".seating-dialog__content").innerHTML = `We're sorry, but the name <b style="font-weight:bold">${firstname} ${lastname}</b> doesn't seem to be part of our seating chart database. Please contact one of the NHS officers if you think it should be.`
                 dialog.layout()
                 dialog.open()
                 // TODO show the number and region somehow
