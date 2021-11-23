@@ -171,12 +171,12 @@ def public(path):
     return send_from_directory("frontend/build/public", path)
 
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000, debug=True)
+# if __name__ == "__main__":
+#     app.run(host="0.0.0.0", port=8000, debug=True)
 
 
-# def no_app(environ, start_response):
-#     return NotFound()(environ, start_response)
+def no_app(environ, start_response):
+    return NotFound()(environ, start_response)
 
 
-# app.wsgi_app = DispatcherMiddleware(no_app, {'': app.wsgi_app})
+app.wsgi_app = DispatcherMiddleware(no_app, {'': app.wsgi_app})
