@@ -9,6 +9,7 @@ self.addEventListener("install", event => {
                     "/",
                     "/about",
                     "/service",
+                    "/induction",
                     "/faq",
                     "/contact",
                     // styles
