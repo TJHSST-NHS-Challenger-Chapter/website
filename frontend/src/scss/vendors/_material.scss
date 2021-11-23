@@ -14,6 +14,7 @@
 @use "@material/notched-outline/mdc-notched-outline";
 @use "@material/textfield";
 @use "@material/snackbar/mdc-snackbar";
+@use "@material/dialog";
 
 @include card.core-styles;
 @include icon-button.core-styles;
@@ -21,6 +22,7 @@
 @include drawer.modal-core-styles;
 @include list.core-styles;
 @include textfield.core-styles;
+@include dialog.core-styles;
 
 i.material-icons {
     user-select: none;
