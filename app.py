@@ -116,9 +116,11 @@ def induction():
         # TODO create spreasheet mapping people with regions and numbers and match their name to it
         print(f"received ({firstname}, {lastname}) from client.")
 
-        fake_region = "billiard room"
-        fake_number = 13
-        return jsonify(success=True, region=fake_region, number=fake_number)
+        seating_chart = SPREADSHEETS.worksheet("Induction Seating").get_all_records()
+        for entry in seating_chart:
+            if entry["first"] == firstname and entry["last"] == lastname:
+                return jsonify(success=True, region=entry["region"], number=entry["number"])
+        return jsonify(success=True, region=None, number=None)
     else:
         return render_template("induction.html")
 
