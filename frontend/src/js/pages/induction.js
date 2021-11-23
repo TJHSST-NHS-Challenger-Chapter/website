@@ -41,8 +41,6 @@ form.addEventListener("submit", e => {
                     dialog.root.querySelector(".seating-dialog__content").innerHTML = `We're sorry, but the name <b style="font-weight:bold">${firstname} ${lastname}</b> doesn't seem to be part of our seating chart database. Please contact one of the NHS officers if you think it should be.`
                 dialog.layout()
                 dialog.open()
-                // TODO show the number and region somehow
-                console.log(json)
             }
         })
 
