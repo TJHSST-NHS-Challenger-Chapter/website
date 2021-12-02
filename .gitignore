@@ -12,3 +12,6 @@ credentials.json
 # server output
 error.txt
 output.txt
+
+# MacOS
+.DS_Store
