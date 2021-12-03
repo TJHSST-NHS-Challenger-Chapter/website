@@ -20,16 +20,15 @@
                 margin: 8px;
             }
 
-            .induction-form__firstname,
-              .induction-form__lastname {
-                flex-grow: 1;
-                flex-basis: 300px;
+            .induction-form__id {
+                flex-grow: 1000;
+                flex-basis: 400px;
             }
 
             .induction-form__button {
                 flex-grow: 1;
                 // something big enough that it should always be pushed to the next line
-                flex-basis: 69420px;
+                flex-basis: 300px;
                 // manually taken from height of inputs, which doesn't change
                 height: 56px;
             }
