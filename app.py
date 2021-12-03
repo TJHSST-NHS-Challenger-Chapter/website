@@ -21,6 +21,9 @@ credential = ServiceAccountCredentials.from_json_keyfile_name("credentials.json"
 client = gspread.authorize(credential)
 SPREADSHEETS = client.open("Website database")
 
+# in the NHS Google Drive https://docs.google.com/spreadsheets/d/1V_UtKLbBsC2FMyKofKJhOwBoXcjgAFxVVgZvTWHwS0o/edit#gid=0
+INDUCTION_SPREADSHEETS = client.open("Induction 2021 Seating Chart")
+
 app = Flask(
     __name__,
     template_folder="./frontend/src/templates"
@@ -111,12 +114,7 @@ def about():
 def induction():
     if request.method == "POST":
         form_results = request.get_json()
-        firstname = form_results["firstname"]
-        lastname = form_results["lastname"]
-        # TODO create spreasheet mapping people with regions and numbers and match their name to it
-        print(f"received ({firstname}, {lastname}) from client.")
-
-        seating_chart = SPREADSHEETS.worksheet("Induction Seating").get_all_records()
+        seating_chart = INDUCTION_SPREADSHEETS.worksheet("Chart").get_all_records()
         for entry in seating_chart:
             if entry["first"] == firstname and entry["last"] == lastname:
                 return jsonify(success=True, region=entry["region"], number=entry["number"])
