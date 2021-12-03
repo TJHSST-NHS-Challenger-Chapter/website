@@ -114,11 +114,22 @@ def about():
 def induction():
     if request.method == "POST":
         form_results = request.get_json()
+        student_id = int(form_results["id"])
         seating_chart = INDUCTION_SPREADSHEETS.worksheet("Chart").get_all_records()
         for entry in seating_chart:
-            if entry["first"] == firstname and entry["last"] == lastname:
-                return jsonify(success=True, region=entry["region"], number=entry["number"])
-        return jsonify(success=True, region=None, number=None)
+            if entry["Student ID"] == student_id:
+                return jsonify(
+                    success=True, 
+                    region=entry["Row"], 
+                    number=entry["Seat"], 
+                    firstname=entry["First"], 
+                    lastname=entry["Last"])
+        return jsonify(
+            success=True, 
+            region=None, 
+            number=None,
+            firstname=None,
+            lastname=None)
     else:
         return render_template("induction.html")
 

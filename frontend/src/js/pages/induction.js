@@ -7,8 +7,8 @@ import "../register"
 
 const seating_chart_button = add_ripple(document.querySelector(".info__button"))
 
-const firstname_text_field = new MDCTextField(document.querySelector(".induction-form__firstname"))
-const lastname_text_field = new MDCTextField(document.querySelector(".induction-form__lastname"))
+const form_student_id = new MDCTextField(document.querySelector(".induction-form__id"))
+const form_submit_button = add_ripple(document.querySelector(".induction-form__button"))
 
 const form = document.querySelector(".induction-form")
 const dialog = new MDCDialog(document.querySelector(".seating-dialog"))
@@ -30,15 +30,17 @@ form.addEventListener("submit", e => {
             /* expected shape is {
                 sucess: boolean,
                 region: string?,
-                number: number?
+                number: number?,
+                firstname: string?,
+                lastname: string?
             } */
             if (json.success) {
-                const {firstname, lastname} = form_data
-                const {region, number} = json
-                if (region && number)
-                    dialog.root.querySelector(".seating-dialog__content").innerHTML = `Welcome, <b style="font-weight:bold">${firstname} ${lastname}</b>. Your seat is <b style="font-weight:bold">#${number}</b> at <b style="font-weight:bold">${region}</b>. See the seating chart .pdf file for that seat's location in the room.`
+                const {id} = form_data
+                const {region, number, firstname, lastname} = json
+                if (region && number && firstname && lastname)
+                    dialog.root.querySelector(".seating-dialog__content").innerHTML = `Welcome, <b style="font-weight:bold">${firstname} ${lastname}</b>. Your seat is <b style="font-weight:bold">#${number}</b> at row <b style="font-weight:bold">${region}</b>. See the seating chart .pdf file for that seat's location in the room.`
                 else
-                    dialog.root.querySelector(".seating-dialog__content").innerHTML = `We're sorry, but the name <b style="font-weight:bold">${firstname} ${lastname}</b> doesn't seem to be part of our seating chart database. Please contact one of the NHS officers if you think it should be.`
+                    dialog.root.querySelector(".seating-dialog__content").innerHTML = `We're sorry, but the student ID <b style="font-weight:bold">${id}</b> doesn't seem to be part of our seating chart database. Please contact one of the NHS officers if you think it should be.`
                 dialog.layout()
                 dialog.open()
             }
