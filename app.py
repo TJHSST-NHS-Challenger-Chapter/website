@@ -120,14 +120,16 @@ def induction():
             if entry["Student ID"] == student_id:
                 return jsonify(
                     success=True, 
-                    region=entry["Row"], 
-                    number=entry["Seat"], 
+                    row=entry["Row"], 
+                    seat=entry["Seat"], 
+                    section=entry["Section"],
                     firstname=entry["First"], 
                     lastname=entry["Last"])
         return jsonify(
             success=True, 
-            region=None, 
-            number=None,
+            row=None, 
+            seat=None,
+            section=None,
             firstname=None,
             lastname=None)
     else:

@@ -29,16 +29,17 @@ form.addEventListener("submit", e => {
         .then(json => {
             /* expected shape is {
                 sucess: boolean,
-                region: string?,
-                number: number?,
+                row: string?,
+                seat: number?,
+                section: string?,
                 firstname: string?,
                 lastname: string?
             } */
             if (json.success) {
                 const {id} = form_data
-                const {region, number, firstname, lastname} = json
-                if (region && number && firstname && lastname)
-                    dialog.root.querySelector(".seating-dialog__content").innerHTML = `Welcome, <b style="font-weight:bold">${firstname} ${lastname}</b>. Your seat is <b style="font-weight:bold">#${number}</b> at row <b style="font-weight:bold">${region}</b>. See the seating chart .pdf file for that seat's location in the room.`
+                const {row, seat, section, firstname, lastname} = json
+                if (row && seat && section && firstname && lastname)
+                    dialog.root.querySelector(".seating-dialog__content").innerHTML = `Welcome, <b style="font-weight:bold">${firstname} ${lastname}</b>. Your seat is <b style="font-weight:bold">#${seat}</b> in row <b style="font-weight:bold">${row}</b> in the <b style="font-weight:bold">${section.toLowerCase()}</b> section. See the seating chart .pdf file for that seat's location in the room.`
                 else
                     dialog.root.querySelector(".seating-dialog__content").innerHTML = `We're sorry, but the student ID <b style="font-weight:bold">${id}</b> doesn't seem to be part of our seating chart database. Please contact one of the NHS officers if you think it should be.`
                 dialog.layout()
