@@ -5,8 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-    <meta name="description" content="TJHSST NHS is part of the NHS Challenger Chapter and strives to promote community service and the four pillars of the NHS among TJHSST 11th and 12th grade members.">
-    <meta name="keywords" content="NHS, National Honor Society, TJ, TJHSST, Thomas Jefferson High School, Thomas Jefferson High School for Science and Technology, service, service hours, community service, volunteer, volunteers">
+    <meta name="description"
+        content="TJHSST NHS is part of the NHS Challenger Chapter and strives to promote community service and the four pillars of the NHS among TJHSST 11th and 12th grade members.">
+    <meta name="keywords"
+        content="NHS, National Honor Society, TJ, TJHSST, Thomas Jefferson High School, Thomas Jefferson High School for Science and Technology, service, service hours, community service, volunteer, volunteers">
     <meta name="web_author" content="Jason Klein">
     <meta name="theme-color" content="#1a1744">
     <meta property="og:title" content="TJHSST NHS Challenger Chapter">
@@ -29,9 +31,8 @@
     <header class="nav-bar mdc-top-app-bar mdc-top-app-bar--fixed">
         <div class="mdc-top-app-bar__row">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <button
-                        class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
-                        aria-label="Open navigation menu">menu</button>
+                <button class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                    aria-label="Open navigation menu">menu</button>
                 <span class="nav-bar__title mdc-top-app-bar__title">Service</span>
             </section>
         </div>
@@ -53,11 +54,6 @@
                     <span class="mdc-list-item__ripple"></span>
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
                     <span class="mdc-list-item__text">About</span>
-                </a>
-                <a class="mdc-list-item" href="{{ url_for('induction') }}">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">school</i>
-                    <span class="mdc-list-item__text">Induction</span>
                 </a>
                 <a class="mdc-list-item mdc-list-item--activated" href="{{ url_for('service') }}" aria-current="page">
                     <span class="mdc-list-item__ripple"></span>
@@ -84,9 +80,15 @@
     <main class="mdc-top-app-bar--fixed-adjust">
         <section class="submit">
             <h4 class="submit__header">Submit Service Opportunities</h4>
-            <p class="submit__body">Whether or not you have a fully-fledged opportunity searching for volunteers or just an idea with a lot of potential, we would love to hear it: fill out the form below! We have many members who are willing to volunteer and would love the opportunity. Make sure to specify whether or not the service can be done virtually. Questions or comments not related to service opportunities should be sent through the <a class="typography--link" href="{{ url_for('contact') }}">contact form</a>.
+            <p class="submit__body">Whether or not you have a fully-fledged opportunity searching for volunteers or just
+                an idea with a lot of potential, we would love to hear it: fill out the form below! We have many members
+                who are willing to volunteer and would love the opportunity. Make sure to specify whether or not the
+                service can be done virtually. Questions or comments not related to service opportunities should be sent
+                through the <a class="typography--link" href="{{ url_for('contact') }}">contact form</a>.
             </p>
-            <a class="submit__button mdc-button mdc-button--outlined" href="https://docs.google.com/forms/d/e/1FAIpQLSfrESidSZ9PjFLnajgffgwMhaaW7Lyr1M4SBVT5ZOc5IbcC2g/viewform" target="_blank" rel="noopener noreferrer">
+            <a class="submit__button mdc-button mdc-button--outlined"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfrESidSZ9PjFLnajgffgwMhaaW7Lyr1M4SBVT5ZOc5IbcC2g/viewform"
+                target="_blank" rel="noopener noreferrer">
                 <div class="mdc-button__ripple"></div>
                 <i class="material-icons mdc-button__icon" aria-hidden="true">list</i>
                 <span class="mdc-button__label">Submit Service Opportunity</span>
@@ -95,8 +97,13 @@
 
         <section class="find">
             <h4 class="find__header">Find Service Opportunities</h4>
-            <p class="find__body">This google spreadsheet is a collation of service opportunities curated by the TJHSST NHS Service Chairs (learn more about them on the <a class="typography--link" href="{{ url_for('about') }}">about</a> page!). Click <a class="typography--link" href="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQHh3xeq878ts-kowr_nqxdxfCced8yPq58pXDR6rrx36HNEFJjJXfMbz21ziTOVHDlFt6pWmPp8ghr/pubhtml?widget=true&headers=false" target="_blank" rel="noopener noreferrer">here</a> to open the spreadsheet in fullscreen.</p>
-            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQzIw8Fn4bTDUUeaqEzwbZo5ats9sU_Ox7E0zWdMioLt7DryyhV9Hqn9YLy1iaQkqU74KHbg1cHXjYQ/pubhtml?widget=true&amp;headers=false"></iframe>
+            <p class="find__body">This google spreadsheet is a collation of service opportunities curated by the TJHSST
+                NHS Service Chairs (learn more about them on the <a class="typography--link"
+                    href="{{ url_for('about') }}">about</a> page!). Click <a class="typography--link"
+                    href="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQHh3xeq878ts-kowr_nqxdxfCced8yPq58pXDR6rrx36HNEFJjJXfMbz21ziTOVHDlFt6pWmPp8ghr/pubhtml?widget=true&headers=false"
+                    target="_blank" rel="noopener noreferrer">here</a> to open the spreadsheet in fullscreen.</p>
+            <iframe
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQzIw8Fn4bTDUUeaqEzwbZo5ats9sU_Ox7E0zWdMioLt7DryyhV9Hqn9YLy1iaQkqU74KHbg1cHXjYQ/pubhtml?widget=true&amp;headers=false"></iframe>
         </section>
     </main>
 </body>

@@ -5,8 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-    <meta name="description" content="TJHSST NHS is part of the NHS Challenger Chapter and strives to promote community service and the four pillars of the NHS among TJHSST 11th and 12th grade members.">
-    <meta name="keywords" content="NHS, National Honor Society, TJ, TJHSST, Thomas Jefferson High School, Thomas Jefferson High School for Science and Technology, service, service hours, community service, volunteer, volunteers">
+    <meta name="description"
+        content="TJHSST NHS is part of the NHS Challenger Chapter and strives to promote community service and the four pillars of the NHS among TJHSST 11th and 12th grade members.">
+    <meta name="keywords"
+        content="NHS, National Honor Society, TJ, TJHSST, Thomas Jefferson High School, Thomas Jefferson High School for Science and Technology, service, service hours, community service, volunteer, volunteers">
     <meta name="web_author" content="Jason Klein">
     <meta name="theme-color" content="#1a1744">
     <meta property="og:title" content="TJHSST NHS Challenger Chapter">
@@ -29,9 +31,8 @@
     <header class="nav-bar mdc-top-app-bar mdc-top-app-bar--fixed">
         <div class="mdc-top-app-bar__row">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <button
-                        class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
-                        aria-label="Open navigation menu">menu</button>
+                <button class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                    aria-label="Open navigation menu">menu</button>
                 <span class="nav-bar__title mdc-top-app-bar__title">FAQ</span>
             </section>
         </div>
@@ -53,11 +54,6 @@
                     <span class="mdc-list-item__ripple"></span>
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
                     <span class="mdc-list-item__text">About</span>
-                </a>
-                <a class="mdc-list-item" href="{{ url_for('induction') }}">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">school</i>
-                    <span class="mdc-list-item__text">Induction</span>
                 </a>
                 <a class="mdc-list-item" href="{{ url_for('service') }}">
                     <span class="mdc-list-item__ripple"></span>
@@ -84,28 +80,39 @@
     <main class="mdc-top-app-bar--fixed-adjust">
         <section class="general">
             <h4 class="general__header">Fully Anticipated Questions (FAQs)</h4>
-            <p class="general__body">If your question is not answered, just send us an email through the <a class="typography--link" href="{{ url_for('contact') }}">contact</a> page.</p>
+            <p class="general__body">If your question is not answered, just send us an email through the <a
+                    class="typography--link" href="{{ url_for('contact') }}">contact</a> page.</p>
             <ul class="general__list">
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">Where can I find updates?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">Make sure you are in the appropriate Google Classroom; if not, contact one of our sponsors (Ms. Gillevet at <a href="mailto:ezgillevet1@fcps.edu" target="_blank" rel="noopener noreferrer" class="typography--link">ezgillevet1@fcps.edu</a> or Ms. Nelson at <a href="mailto:lhnelson@fcps.edu" target="_blank" rel="noopener noreferrer" class="typography--link">lhnelson@fcps.edu</a>) for the code. Also, join our Facebook group once you are admitted, check your email, and keep track of Ion posts. If you haven’t noticed any posts in a while, you may want to reach out to the officers.</p>
+                    <p class="typography--body-2 question__answer">Make sure you are in the appropriate Google
+                        Classroom; if not, contact one of our sponsors (Ms. Gillevet at <a
+                            href="mailto:ezgillevet1@fcps.edu" target="_blank" rel="noopener noreferrer"
+                            class="typography--link">ezgillevet1@fcps.edu</a> or Ms. Nelson at <a
+                            href="mailto:lhnelson@fcps.edu" target="_blank" rel="noopener noreferrer"
+                            class="typography--link">lhnelson@fcps.edu</a>) for the code. Also, join our Facebook group
+                        once you are admitted, check your email, and keep track of Ion posts. If you haven’t noticed any
+                        posts in a while, you may want to reach out to the officers.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">If you are fundraising for a charity, is that service, or no?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">Fundraising/donating on their own do not count. Organizing a fundraiser may be applicable, though, if you don’t receive any incentives and you have clearly outlined hours that can be confirmed by an adult sponsor.</p>
+                    <p class="typography--body-2 question__answer">Fundraising/donating on their own do not count.
+                        Organizing a fundraiser may be applicable, though, if you don’t receive any incentives and you
+                        have clearly outlined hours that can be confirmed by an adult sponsor.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">Does tutoring count as service?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">Yes, as long as you are not getting paid/receiving an incentive, and have an adult sponsor.</p>
+                    <p class="typography--body-2 question__answer">Yes, as long as you are not getting paid/receiving an
+                        incentive, and have an adult sponsor.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
@@ -116,66 +123,84 @@
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
-                        <h6 class="question__header">Would hours completed over the summer count towards the 6 required?</h6>
+                        <h6 class="question__header">Would hours completed over the summer count towards the 6 required?
+                        </h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">Yes, as long as it was after the 2019-20 school year ended (after June 13, 2020).</p>
+                    <p class="typography--body-2 question__answer">Yes, as long as it was after the 2019-20 school year
+                        ended (after June 13, 2020).</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
-                        <h6 class="question__header">Can we count service hours that are already being counted towards the service learning cord and civics seal for NHS?</h6>
+                        <h6 class="question__header">Can we count service hours that are already being counted towards
+                            the service learning cord and civics seal for NHS?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">Submit hours for NHS in Google Classroom and any additional hours into x2VOL to apply to other goals/seals outside of NHS.</p>
+                    <p class="typography--body-2 question__answer">Submit hours for NHS in Google Classroom and any
+                        additional hours into x2VOL to apply to other goals/seals outside of NHS.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">Would tutoring at the Writing Center count as service?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">Yes, as long as you are counting hours where you are actively helping someone.</p>
+                    <p class="typography--body-2 question__answer">Yes, as long as you are counting hours where you are
+                        actively helping someone.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">What do we do as a club?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">The main requirement for members of the club is to meet service hours deadlines. This year circumstances are different, but we will try to keep everyone updated on service opportunities, and also host opportunities.</p>
+                    <p class="typography--body-2 question__answer">The main requirement for members of the club is to
+                        meet service hours deadlines. This year circumstances are different, but we will try to keep
+                        everyone updated on service opportunities, and also host opportunities.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
-                        <h6 class="question__header">What if my online service does not have an adult sponsor to sign off on my hours? (2020-21 school year)</h6>
+                        <h6 class="question__header">What if my online service does not have an adult sponsor to sign
+                            off on my hours? (2020-21 school year)</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">This year given the circumstances we are allowing parents to sign off on hours, so put them as your contact if necessary.</p>
+                    <p class="typography--body-2 question__answer">This year given the circumstances we are allowing
+                        parents to sign off on hours, so put them as your contact if necessary.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
-                        <h6 class="question__header">Did we have to get the hours during the summer? What is the timeframe?</h6>
+                        <h6 class="question__header">Did we have to get the hours during the summer? What is the
+                            timeframe?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">You do not need to do hours over the summer, but if you do it will count towards your first semester requirement. Six hours from June 15th (end of the 2019-20 school year) to January 22nd (end of first semester). As a member, you will need another 12 hours from Jan 22nd to the end of the 2020-21 school year.</p>
+                    <p class="typography--body-2 question__answer">You do not need to do hours over the summer, but if
+                        you do it will count towards your first semester requirement. Six hours from June 15th (end of
+                        the 2019-20 school year) to January 22nd (end of first semester). As a member, you will need
+                        another 12 hours from Jan 22nd to the end of the 2020-21 school year.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">Is there anywhere specific where we need to log our hours?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">This year, NHS is not using x2Vol to log hours. Please submit your hours through Google Classroom only; if you have hours additional to the requirement, you may log them in x2Vol to apply to other goals outside of NHS.</p>
+                    <p class="typography--body-2 question__answer">This year, NHS is not using x2Vol to log hours.
+                        Please submit your hours through Google Classroom only; if you have hours additional to the
+                        requirement, you may log them in x2Vol to apply to other goals outside of NHS.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">What is the name of your facebook page?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">Most announcements are posted in our private Facebook group (TJ National Honor Society 2020-21), though, so join the group once you’re admitted.</p>
+                    <p class="typography--body-2 question__answer">Most announcements are posted in our private Facebook
+                        group (TJ National Honor Society 2020-21), though, so join the group once you’re admitted.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">How do I become part of NHS leadership?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">If you are a junior, you may apply to become a Junior Chair (3 Service Chairs, 1 Communications Chair, 1 Technology Chair) in February-March. In May or June elections will be held for President, Vice-President, and Secretary-Treasurer.</p>
+                    <p class="typography--body-2 question__answer">If you are a junior, you may apply to become a Junior
+                        Chair (3 Service Chairs, 1 Communications Chair, 1 Technology Chair) in February-March. In May
+                        or June elections will be held for President, Vice-President, and Secretary-Treasurer.</p>
                 </li>
             </ul>
         </section>
@@ -188,14 +213,19 @@
                         <h6 class="question__header">Is the application rolling or does it happen at a set time?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">Applications to NHS happen at a set time. The application season typically opens with an interest meeting in October available during 8th period which details the application process. Applications are normally due in early November.</p>
+                    <p class="typography--body-2 question__answer">Applications to NHS happen at a set time. The
+                        application season typically opens with an interest meeting in October available during 8th
+                        period which details the application process. Applications are normally due in early November.
+                    </p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">What are the requirements for applying?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">You must be a junior or a senior and meet a minimum GPA of 3.5. You must also have earned 6 hours of service since the start of the summer upon applying.</p>
+                    <p class="typography--body-2 question__answer">You must be a junior or a senior and meet a minimum
+                        GPA of 3.5. You must also have earned 6 hours of service since the start of the summer upon
+                        applying.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
@@ -209,70 +239,92 @@
                         <h6 class="question__header">Is it an invitation or an application?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">You fill out the application to potentially get an invitation to be accepted into NHS.</p>
+                    <p class="typography--body-2 question__answer">You fill out the application to potentially get an
+                        invitation to be accepted into NHS.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
-                        <h6 class="question__header">On our applications can we put if we are an officer of a school club even if we were appointed at the end of last year/start of this year?</h6>
+                        <h6 class="question__header">On our applications can we put if we are an officer of a school
+                            club even if we were appointed at the end of last year/start of this year?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">Yes, just remember to put an X in the grade that you held/made a significant impact as that position.</p>
+                    <p class="typography--body-2 question__answer">Yes, just remember to put an X in the grade that you
+                        held/made a significant impact as that position.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">Is it pretty difficult to get in?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">No; we are an open community, and the application process is not meant to be punitive. Just make sure to put an honest effort into your application and essays--your work will be viewed by faculty members who are taking time out of their days to grade applications. And turn in your forms in time! There are only two (the applicant and parent forms), and failure to do so will result in your application being rejected.</p>
+                    <p class="typography--body-2 question__answer">No; we are an open community, and the application
+                        process is not meant to be punitive. Just make sure to put an honest effort into your
+                        application and essays--your work will be viewed by faculty members who are taking time out of
+                        their days to grade applications. And turn in your forms in time! There are only two (the
+                        applicant and parent forms), and failure to do so will result in your application being
+                        rejected.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">What if we are struggling to find in-person opportunities?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">We have noticed a large number of volunteer organizations that have adapted to an online format, but if you are having problems finding somewhere to volunteer, please reach out to us and we’ll try to connect you to opportunities.</p>
+                    <p class="typography--body-2 question__answer">We have noticed a large number of volunteer
+                        organizations that have adapted to an online format, but if you are having problems finding
+                        somewhere to volunteer, please reach out to us and we’ll try to connect you to opportunities.
+                    </p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
-                        <h6 class="question__header">What should I write for the description of my service in my hours spreadsheet? (2020-21 school year)</h6>
+                        <h6 class="question__header">What should I write for the description of my service in my hours
+                            spreadsheet? (2020-21 school year)</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">One or two sentences describing what <i>you</i> specifically did is sufficient.</p>
+                    <p class="typography--body-2 question__answer">One or two sentences describing what <i>you</i>
+                        specifically did is sufficient.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">Is there a word limit to the essays?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">Yes, but it is not a hard and fast requirement; it is okay to go 5-10 words over the word limit.</p>
+                    <p class="typography--body-2 question__answer">Yes, but it is not a hard and fast requirement; it is
+                        okay to go 5-10 words over the word limit.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
-                        <h6 class="question__header">Why is there such a focus on having been a leader in a club/extracurricular activity?</h6>
+                        <h6 class="question__header">Why is there such a focus on having been a leader in a
+                            club/extracurricular activity?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">One of our four pillars is founded on leadership and we love to see active participation of our members in clubs they are passionate in. A leadership position doesn't necessarily have to be an officer position, but anytime you helped or contributed to a group over a significant period of time.</p>
+                    <p class="typography--body-2 question__answer">One of our four pillars is founded on leadership and
+                        we love to see active participation of our members in clubs they are passionate in. A leadership
+                        position doesn't necessarily have to be an officer position, but anytime you helped or
+                        contributed to a group over a significant period of time.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">Does NHS leadership review the application?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">No, applications will be reviewed by faculty members from TJ.</p>
+                    <p class="typography--body-2 question__answer">No, applications will be reviewed by faculty members
+                        from TJ.</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">Why might my application have been denied?</h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">You may have failed to submit your application or parent form; just filling it out is not enough, you must press “Turn In”!</p>
+                    <p class="typography--body-2 question__answer">You may have failed to submit your application or
+                        parent form; just filling it out is not enough, you must press “Turn In”!</p>
                 </li>
                 <li class="question mdc-card mdc-card--outlined">
                     <div class="question__top">
                         <h6 class="question__header">Why might my membership have been revoked? </h6>
                         <i class="question__icon material-icons">expand_more</i>
                     </div>
-                    <p class="typography--body-2 question__answer">You may have failed to submit your hours; just filling out your spreadsheet is not enough, you must press “Turn In” and fill out the Google Form!</p>
+                    <p class="typography--body-2 question__answer">You may have failed to submit your hours; just
+                        filling out your spreadsheet is not enough, you must press “Turn In” and fill out the Google
+                        Form!</p>
                 </li>
             </ul>
         </section>

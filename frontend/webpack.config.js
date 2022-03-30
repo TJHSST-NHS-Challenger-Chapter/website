@@ -15,7 +15,7 @@ module.exports = ({ production, development }) => ({
         home: "./src/js/pages/home.js",
         about: "./src/js/pages/about.js",
         service: "./src/js/pages/service.js",
-        induction: "./src/js/pages/induction.js",
+        // induction: "./src/js/pages/induction.js",
         faq: "./src/js/pages/faq.js",
         contact: "./src/js/pages/contact.js",
         sw: "./src/public/sw.js",

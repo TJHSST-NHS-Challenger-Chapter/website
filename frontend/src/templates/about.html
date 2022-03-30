@@ -5,8 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-    <meta name="description" content="TJHSST NHS is part of the NHS Challenger Chapter and strives to promote community service and the four pillars of the NHS among TJHSST 11th and 12th grade members.">
-    <meta name="keywords" content="NHS, National Honor Society, TJ, TJHSST, Thomas Jefferson High School, Thomas Jefferson High School for Science and Technology, service, service hours, community service, volunteer, volunteers">
+    <meta name="description"
+        content="TJHSST NHS is part of the NHS Challenger Chapter and strives to promote community service and the four pillars of the NHS among TJHSST 11th and 12th grade members.">
+    <meta name="keywords"
+        content="NHS, National Honor Society, TJ, TJHSST, Thomas Jefferson High School, Thomas Jefferson High School for Science and Technology, service, service hours, community service, volunteer, volunteers">
     <meta name="web_author" content="Jason Klein">
     <meta name="theme-color" content="#1a1744">
     <meta property="og:title" content="TJHSST NHS Challenger Chapter">
@@ -29,9 +31,8 @@
     <header class="nav-bar mdc-top-app-bar mdc-top-app-bar--fixed">
         <div class="mdc-top-app-bar__row">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <button
-                        class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
-                        aria-label="Open navigation menu">menu</button>
+                <button class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                    aria-label="Open navigation menu">menu</button>
                 <span class="nav-bar__title mdc-top-app-bar__title">About</span>
             </section>
         </div>
@@ -53,11 +54,6 @@
                     <span class="mdc-list-item__ripple"></span>
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
                     <span class="mdc-list-item__text">About</span>
-                </a>
-                <a class="mdc-list-item" href="{{ url_for('induction') }}">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">school</i>
-                    <span class="mdc-list-item__text">Induction</span>
                 </a>
                 <a class="mdc-list-item" href="{{ url_for('service') }}">
                     <span class="mdc-list-item__ripple"></span>
@@ -85,7 +81,13 @@
         <section class="about-us">
             <h4 class="about-us__header">About Us</h4>
             <!-- TODO: Double check about us body text -->
-            <p class="about-us__body">The <span class="typography--link">Thomas Jefferson National Honor Society</span> is a part of the Challenger Chapter of NHS. This club is open to 11th and 12th graders who meet GPA and service hour requirements and demonstrate excellence in the areas of our four pillars: <span class="typography--link">scholarship</span>, <span class="typography--link">leadership</span>, <span class="typography--link">service</span>, and <span class="typography--link">character</span>. Both Juniors and Seniors can apply for membership.<br /><br />National Honor Society requires its members to perform service activities both inside and outside of school over the course of the year.
+            <p class="about-us__body">The <span class="typography--link">Thomas Jefferson National Honor Society</span>
+                is a part of the Challenger Chapter of NHS. This club is open to 11th and 12th graders who meet GPA and
+                service hour requirements and demonstrate excellence in the areas of our four pillars: <span
+                    class="typography--link">scholarship</span>, <span class="typography--link">leadership</span>, <span
+                    class="typography--link">service</span>, and <span class="typography--link">character</span>. Both
+                Juniors and Seniors can apply for membership.<br /><br />National Honor Society requires its members to
+                perform service activities both inside and outside of school over the course of the year.
             </p>
         </section>
 
@@ -93,11 +95,8 @@
             <h4 class="officers__header">Officers</h4>
             <ul class="officers__list">
                 <li class="officer mdc-card mdc-card--outlined">
-                    <img src="{{ url_for('assets', path='AJ Seo.jpg') }}"
-                         class="officer__image typography--body-1"
-                         alt="AJ Seo"
-                         width="64"
-                         height="72">
+                    <img src="{{ url_for('assets', path='AJ Seo.jpg') }}" class="officer__image typography--body-1"
+                        alt="AJ Seo" width="64" height="72">
                     <div class="officer__info">
                         <h6 class="officer__name">AJ Seo</h6>
                         <p class="officer__position typography--body-2">President</p>
@@ -105,11 +104,8 @@
                     <!-- TODO: replace href with officer contact info -->
                 </li>
                 <li class="officer mdc-card mdc-card--outlined">
-                    <img src="{{ url_for('assets', path='Liam Reaser.jpg') }}"
-                         class="officer__image typography--body-1"
-                         alt="Liam Reaser"
-                         width="64"
-                         height="72">
+                    <img src="{{ url_for('assets', path='Liam Reaser.jpg') }}" class="officer__image typography--body-1"
+                        alt="Liam Reaser" width="64" height="72">
                     <div class="officer__info">
                         <h6 class="officer__name">Liam Reaser</h6>
                         <p class="officer__position typography--body-2">Vice President</p>
@@ -118,10 +114,7 @@
                 </li>
                 <li class="officer mdc-card mdc-card--outlined">
                     <img src="{{ url_for('assets', path='Yoo-Bin Kwon.jpg') }}"
-                         class="officer__image typography--body-1"
-                         alt="Yoo-Bin Kwon"
-                         width="64"
-                         height="72">
+                        class="officer__image typography--body-1" alt="Yoo-Bin Kwon" width="64" height="72">
                     <div class="officer__info">
                         <h6 class="officer__name">Yoo-Bin Kwon</h6>
                         <p class="officer__position typography--body-2">Secretary & Treasurer</p>
@@ -129,23 +122,18 @@
                     <!-- TODO: replace href with officer contact info -->
                 </li>
                 <li class="officer mdc-card mdc-card--outlined">
-                    <img src="{{ url_for('assets', path='Alice Ji.jpg') }}"
-                         class="officer__image typography--body-1"
-                         alt="Alice Ji"
-                         width="64"
-                         height="72">
+                    <img src="{{ url_for('assets', path='Alice Ji.jpg') }}" class="officer__image typography--body-1"
+                        alt="Alice Ji" width="64" height="72">
                     <div class="officer__info">
                         <h6 class="officer__name">Alice Ji</h6>
                         <p class="officer__position typography--body-2">Comms Chair</p>
                     </div>
-                    <a href="https://www.linkedin.com/in/forrestmeng629/" target="_blank" rel="noopener noreferrer" class="officer__social mdc-icon-button material-icons">share</a>
+                    <a href="https://www.linkedin.com/in/forrestmeng629/" target="_blank" rel="noopener noreferrer"
+                        class="officer__social mdc-icon-button material-icons">share</a>
                 </li>
                 <li class="officer mdc-card mdc-card--outlined">
-                    <img src="{{ url_for('assets', path='Michelle Ru.jpg') }}"
-                         class="officer__image typography--body-1"
-                         alt="Michelle Ru"
-                         width="64"
-                         height="72">
+                    <img src="{{ url_for('assets', path='Michelle Ru.jpg') }}" class="officer__image typography--body-1"
+                        alt="Michelle Ru" width="64" height="72">
                     <div class="officer__info">
                         <h6 class="officer__name">Michelle Ru</h6>
                         <p class="officer__position typography--body-2">Service Chair</p>
@@ -153,26 +141,22 @@
                     <!-- TODO: replace href with officer contact info -->
                 </li>
                 <li class="officer mdc-card mdc-card--outlined">
-                    <img src="{{ url_for('assets', path='Jason Klein.jpg') }}"
-                         class="officer__image typography--body-1"
-                         alt="Jason Klein"
-                         width="64"
-                         height="72">
+                    <img src="{{ url_for('assets', path='Jason Klein.jpg') }}" class="officer__image typography--body-1"
+                        alt="Jason Klein" width="64" height="72">
                     <div class="officer__info">
                         <h6 class="officer__name">Jason Klein</h6>
                         <p class="officer__position typography--body-2">Technology Chair</p>
                     </div>
-                    <a href="https://www.linkedin.com/in/jason-adam-klein/" target="_blank" rel="noopener noreferrer" class="officer__social mdc-icon-button material-icons">share</a>
+                    <a href="https://www.linkedin.com/in/jason-adam-klein/" target="_blank" rel="noopener noreferrer"
+                        class="officer__social mdc-icon-button material-icons">share</a>
                 </li>
                 <li class="officer mdc-card mdc-card--outlined">
-                    <img src=" {{ url_for('assets', path='blank.jpeg') }}"
-                         class="officer__image typography--body-1"
-                         alt="This could be you!"
-                         width="64"
-                         height="72">
+                    <img src=" {{ url_for('assets', path='blank.jpeg') }}" class="officer__image typography--body-1"
+                        alt="This could be you!" width="64" height="72">
                     <div class="officer__info">
                         <h6 class="officer__name">This could be you!</h6>
-                        <p class="officer__position typography--body-2">Learn about Junior Chair applications on the <a class="typography--link" href="{{ url_for('faq') }}">FAQ</a>.</p>
+                        <p class="officer__position typography--body-2">Learn about Junior Chair applications on the <a
+                                class="typography--link" href="{{ url_for('faq') }}">FAQ</a>.</p>
                     </div>
                 </li>
             </ul>
@@ -187,7 +171,14 @@
                         <h6 class="pillar__title">Service</h6>
                     </div>
                     <!-- TODO: Double check services pillar text -->
-                    <p class="pillar__description">Everyday Service is seeking out and engaging in meaningful service. It calls for a service mindset, the desire to seek opportunities to help others as well as acts of service. As Honor Society students, many young teens and young adults at local chapters are required to meet minimum service participation requirements.<br /><br />Although hours are important, Everyday Service is seeing a need and fulfilling it voluntarily. Sometimes it’s driven by a passion for a specific cause or people in need. Other times, it’s driven by personal or family need, like taking care of siblings or other family members, or maybe even working part-time to help with family finances.</p>
+                    <p class="pillar__description">Everyday Service is seeking out and engaging in meaningful service.
+                        It calls for a service mindset, the desire to seek opportunities to help others as well as acts
+                        of service. As Honor Society students, many young teens and young adults at local chapters are
+                        required to meet minimum service participation requirements.<br /><br />Although hours are
+                        important, Everyday Service is seeing a need and fulfilling it voluntarily. Sometimes it’s
+                        driven by a passion for a specific cause or people in need. Other times, it’s driven by personal
+                        or family need, like taking care of siblings or other family members, or maybe even working
+                        part-time to help with family finances.</p>
                 </li>
                 <li class="pillar mdc-card">
                     <div class="pillar__top">
@@ -195,7 +186,12 @@
                         <h6 class="pillar__title">Leadership</h6>
                     </div>
                     <!-- TODO: Double check leadership pillar text -->
-                    <p class="pillar__description">Everyday Leadership builds on Everyday Service. Service and leadership oftentimes look very similar. Everyday Leadership is carrying oneself with dignity and taking ownership and responsibility for one’s own actions and participation. Being a public speaker, playing quarterback, or having an official title is not required for Everyday Leadership. Everyday Leadership means being an agent—someone who takes action and responsibility—of your own pathway.</p>
+                    <p class="pillar__description">Everyday Leadership builds on Everyday Service. Service and
+                        leadership oftentimes look very similar. Everyday Leadership is carrying oneself with dignity
+                        and taking ownership and responsibility for one’s own actions and participation. Being a public
+                        speaker, playing quarterback, or having an official title is not required for Everyday
+                        Leadership. Everyday Leadership means being an agent—someone who takes action and
+                        responsibility—of your own pathway.</p>
                 </li>
                 <li class="pillar mdc-card">
                     <div class="pillar__top">
@@ -203,7 +199,12 @@
                         <h6 class="pillar__title">Scholarship</h6>
                     </div>
                     <!-- TODO: Double check scholarship pillar text -->
-                    <p class="pillar__description">Everyday Scholarship is a commitment to learning and growing on an educational path. It means making the most of the educational opportunities provided and seeking out learning, not only in school or similar settings, but also personally. Everyday Scholarship doesn’t require a minimum GPA—but it does require effort. More importantly, it stems from a desire to contribute to this world in a positive way by building on one’s own knowledge, skills, and talent through different experiences.</p>
+                    <p class="pillar__description">Everyday Scholarship is a commitment to learning and growing on an
+                        educational path. It means making the most of the educational opportunities provided and seeking
+                        out learning, not only in school or similar settings, but also personally. Everyday Scholarship
+                        doesn’t require a minimum GPA—but it does require effort. More importantly, it stems from a
+                        desire to contribute to this world in a positive way by building on one’s own knowledge, skills,
+                        and talent through different experiences.</p>
                 </li>
                 <li class="pillar mdc-card">
                     <div class="pillar__top">
@@ -211,7 +212,13 @@
                         <h6 class="pillar__title">Character</h6>
                     </div>
                     <!-- TODO: Double check character pillar text -->
-                    <p class="pillar__description">Everyday Character is valuing diverse cultures and building relationships that reflect love of self but also concern for others. There are endless attributes to good character: perseverance, respect, integrity, honesty, sacrifice—the list goes on. Good and noble character is a high calling. Oftentimes we don’t “see” character unless there is a public display of self-sacrifice, or more often, a very public mistake. Everyday Character is not about praiseworthy or blameworthy behavior but the personal commitment to ethical and compassionate decision making that affects oneself and others.</p>
+                    <p class="pillar__description">Everyday Character is valuing diverse cultures and building
+                        relationships that reflect love of self but also concern for others. There are endless
+                        attributes to good character: perseverance, respect, integrity, honesty, sacrifice—the list goes
+                        on. Good and noble character is a high calling. Oftentimes we don’t “see” character unless there
+                        is a public display of self-sacrifice, or more often, a very public mistake. Everyday Character
+                        is not about praiseworthy or blameworthy behavior but the personal commitment to ethical and
+                        compassionate decision making that affects oneself and others.</p>
                 </li>
             </ul>
         </section>

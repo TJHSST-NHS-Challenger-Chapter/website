@@ -22,7 +22,7 @@ client = gspread.authorize(credential)
 SPREADSHEETS = client.open("Website database")
 
 # in the NHS Google Drive https://docs.google.com/spreadsheets/d/1V_UtKLbBsC2FMyKofKJhOwBoXcjgAFxVVgZvTWHwS0o/edit#gid=0
-INDUCTION_SPREADSHEETS = client.open("Induction 2021 Seating Chart")
+# INDUCTION_SPREADSHEETS = client.open("Induction 2021 Seating Chart")
 
 app = Flask(
     __name__,
@@ -110,30 +110,30 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/induction", methods=["GET", "POST"])
-def induction():
-    if request.method == "POST":
-        form_results = request.get_json()
-        student_id = int(form_results["id"])
-        seating_chart = INDUCTION_SPREADSHEETS.worksheet("Chart").get_all_records()
-        for entry in seating_chart:
-            if entry["Student ID"] == student_id:
-                return jsonify(
-                    success=True, 
-                    row=entry["Row"], 
-                    seat=entry["Seat"], 
-                    section=entry["Section"],
-                    firstname=entry["First"], 
-                    lastname=entry["Last"])
-        return jsonify(
-            success=True, 
-            row=None, 
-            seat=None,
-            section=None,
-            firstname=None,
-            lastname=None)
-    else:
-        return render_template("induction.html")
+# @app.route("/induction", methods=["GET", "POST"])
+# def induction():
+#     if request.method == "POST":
+#         form_results = request.get_json()
+#         student_id = int(form_results["id"])
+#         seating_chart = INDUCTION_SPREADSHEETS.worksheet("Chart").get_all_records()
+#         for entry in seating_chart:
+#             if entry["Student ID"] == student_id:
+#                 return jsonify(
+#                     success=True,
+#                     row=entry["Row"],
+#                     seat=entry["Seat"],
+#                     section=entry["Section"],
+#                     firstname=entry["First"],
+#                     lastname=entry["Last"])
+#         return jsonify(
+#             success=True,
+#             row=None,
+#             seat=None,
+#             section=None,
+#             firstname=None,
+#             lastname=None)
+#     else:
+#         return render_template("induction.html")
 
 @app.route("/service")
 def service():
@@ -182,12 +182,12 @@ def public(path):
     return send_from_directory("frontend/build/public", path)
 
 
-# if __name__ == "__main__":
-#     app.run(host="0.0.0.0", port=8000, debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000, debug=True)
 
 
-def no_app(environ, start_response):
-    return NotFound()(environ, start_response)
+# def no_app(environ, start_response):
+#     return NotFound()(environ, start_response)
 
 
-app.wsgi_app = DispatcherMiddleware(no_app, {'': app.wsgi_app})
+# app.wsgi_app = DispatcherMiddleware(no_app, {'': app.wsgi_app})

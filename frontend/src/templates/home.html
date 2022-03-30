@@ -5,8 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-    <meta name="description" content="TJHSST NHS is part of the NHS Challenger Chapter and strives to promote community service and the four pillars of the NHS among TJHSST 11th and 12th grade members.">
-    <meta name="keywords" content="NHS, National Honor Society, TJ, TJHSST, Thomas Jefferson High School, Thomas Jefferson High School for Science and Technology, service, service hours, community service, volunteer, volunteers">
+    <meta name="description"
+        content="TJHSST NHS is part of the NHS Challenger Chapter and strives to promote community service and the four pillars of the NHS among TJHSST 11th and 12th grade members.">
+    <meta name="keywords"
+        content="NHS, National Honor Society, TJ, TJHSST, Thomas Jefferson High School, Thomas Jefferson High School for Science and Technology, service, service hours, community service, volunteer, volunteers">
     <meta name="web_author" content="Jason Klein">
     <meta name="theme-color" content="#1a1744">
     <meta property="og:title" content="TJHSST NHS Challenger Chapter">
@@ -30,9 +32,8 @@
     <header class="nav-bar mdc-top-app-bar mdc-top-app-bar--fixed">
         <div class="mdc-top-app-bar__row">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <button
-                        class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
-                        aria-label="Open navigation menu">menu</button>
+                <button class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                    aria-label="Open navigation menu">menu</button>
                 <span class="nav-bar__title mdc-top-app-bar__title">Home</span>
             </section>
         </div>
@@ -54,11 +55,6 @@
                     <span class="mdc-list-item__ripple"></span>
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
                     <span class="mdc-list-item__text">About</span>
-                </a>
-                <a class="mdc-list-item" href="{{ url_for('induction') }}">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">school</i>
-                    <span class="mdc-list-item__text">Induction</span>
                 </a>
                 <a class="mdc-list-item" href="{{ url_for('service') }}">
                     <span class="mdc-list-item__ripple"></span>
@@ -118,11 +114,9 @@
                     <span class="announcement__date typography--body-2">{{ announcement["date"] }}</span>
                     <div class="announcement__body typography--body-2">{{ announcement["description"]|safe }} </div>
                     {% if announcement.link %}
-                    <a
-                       href="{{ announcement.link }}"
-                       class="announcement__button mdc-button mdc-card__action mdc-card__action--button"
-                       rel="noopener noreferrer"
-                       target="_blank">
+                    <a href="{{ announcement.link }}"
+                        class="announcement__button mdc-button mdc-card__action mdc-card__action--button"
+                        rel="noopener noreferrer" target="_blank">
                         <div class="mdc-button__ripple"></div>
                         <span class="mdc-button__label">
                             {{ announcement.link_name }}

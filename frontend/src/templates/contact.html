@@ -5,8 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-    <meta name="description" content="TJHSST NHS is part of the NHS Challenger Chapter and strives to promote community service and the four pillars of the NHS among TJHSST 11th and 12th grade members.">
-    <meta name="keywords" content="NHS, National Honor Society, TJ, TJHSST, Thomas Jefferson High School, Thomas Jefferson High School for Science and Technology, service, service hours, community service, volunteer, volunteers">
+    <meta name="description"
+        content="TJHSST NHS is part of the NHS Challenger Chapter and strives to promote community service and the four pillars of the NHS among TJHSST 11th and 12th grade members.">
+    <meta name="keywords"
+        content="NHS, National Honor Society, TJ, TJHSST, Thomas Jefferson High School, Thomas Jefferson High School for Science and Technology, service, service hours, community service, volunteer, volunteers">
     <meta name="web_author" content="Jason Klein">
     <meta name="theme-color" content="#1a1744">
     <meta property="og:title" content="TJHSST NHS Challenger Chapter">
@@ -29,9 +31,8 @@
     <header class="nav-bar mdc-top-app-bar mdc-top-app-bar--fixed">
         <div class="mdc-top-app-bar__row">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <button
-                        class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
-                        aria-label="Open navigation menu">menu</button>
+                <button class="nav-bar__menu-button material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+                    aria-label="Open navigation menu">menu</button>
                 <span class="nav-bar__title mdc-top-app-bar__title">Contact Us!</span>
             </section>
         </div>
@@ -53,11 +54,6 @@
                     <span class="mdc-list-item__ripple"></span>
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
                     <span class="mdc-list-item__text">About</span>
-                </a>
-                <a class="mdc-list-item" href="{{ url_for('induction') }}">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">school</i>
-                    <span class="mdc-list-item__text">Induction</span>
                 </a>
                 <a class="mdc-list-item" href="{{ url_for('service') }}">
                     <span class="mdc-list-item__ripple"></span>
@@ -83,7 +79,8 @@
 
     <main class="mdc-top-app-bar--fixed-adjust">
         <section class="content">
-            <p class="content__body">If you would like to speak with officers of TJHSST’s NHS Challenger Chapter, feel free to fill out the form below.</p>
+            <p class="content__body">If you would like to speak with officers of TJHSST’s NHS Challenger Chapter, feel
+                free to fill out the form below.</p>
             <form action="{{ url_for('contact') }}" method="POST" enctype="multipart/form-data" class="contact-form">
                 <label class="contact-form__email mdc-text-field mdc-text-field--outlined">
                     <span class="mdc-notched-outline">
@@ -93,7 +90,8 @@
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="email" name="email" class="mdc-text-field__input" aria-labelledby="email-label" required>
+                    <input type="email" name="email" class="mdc-text-field__input" aria-labelledby="email-label"
+                        required>
                 </label>
                 <label class="contact-form__subject mdc-text-field mdc-text-field--outlined">
                     <span class="mdc-notched-outline">
@@ -103,7 +101,8 @@
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="text" name="subject" class="mdc-text-field__input" autocomplete="off" aria-labelledby="subject-label" required>
+                    <input type="text" name="subject" class="mdc-text-field__input" autocomplete="off"
+                        aria-labelledby="subject-label" required>
                 </label>
                 <label class="contact-form__message mdc-text-field mdc-text-field--outlined mdc-text-field--textarea">
                     <span class="mdc-notched-outline">
@@ -114,7 +113,8 @@
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
                     <span class="mdc-text-field__resizer">
-                        <textarea name="message" class="mdc-text-field__input" rows="8" cols="40" aria-labelledby="message-label" required></textarea>
+                        <textarea name="message" class="mdc-text-field__input" rows="8" cols="40"
+                            aria-labelledby="message-label" required></textarea>
                     </span>
                 </label>
                 <section class="contact-form__buttons">
@@ -123,7 +123,8 @@
                         <i class="material-icons mdc-button__icon" aria-hidden="true">send</i>
                         <span class="mdc-button__label">Send</span>
                     </button>
-                    <button type="reset" class="contact-form__button contact-form__button--reset mdc-button mdc-button--outlined">
+                    <button type="reset"
+                        class="contact-form__button contact-form__button--reset mdc-button mdc-button--outlined">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">Reset</span>
                     </button>
